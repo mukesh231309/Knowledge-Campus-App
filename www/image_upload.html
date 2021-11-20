@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+
+    //upload profile picture function	
+$(document).ready(function(){
+ $("#profile").click(function(){
+	//var url="https://kitetech.ac.in/App/auth-std.php?callback=?";	
+        
+            console.log("submit event");
+            var fd = new FormData(document.getElementById("fileinfo"));
+            fd.append("label", "");
+            $.ajax({
+            url: "https://kitetech.ac.in/App/upload_pp.php",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+            }).done(function( data ) {
+                console.log("PHP Output:");
+                console.log( data );
+				alert("Successful");
+            });
+//            return false;
+
+});
+});	
+		
+
+    </script>	
+		
+    <title>Upload Image</title>
+</head>
+<body >
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<!--<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+	<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Upload Image</h1>
+        <p 	class="button button-clear" id="username"></p>
+    </div>
+    <div class="padding" style="margin-top:75px;">
+	
+        <label class="item-input"> 
+		<span class="input-label"></span>		
+		<form method="post" id="fileinfo" name="fileinfo" >
+			
+			<input type="file" accept="image/*" capture="camera" id="file" name="file" required />
+			<input type="submit" id="profile" class="button button-small button-assertive" value="Upload"/>
+		</form>        	
+		<div id="output"></div>
+		</label>
+		</br>
+		</br>
+        <label class="item-input">
+            <!--<button class="button button-block button-positive" id="">Set</button>-->
+        </label>
+        
+        
+    </div>
+    <ul class="list" id="listview">
+    </ul>
+	
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth-std.js"></script>
+</body>
+
+</html>

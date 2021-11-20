@@ -1,0 +1,8 @@
+<option value="1">Module 1:Basic concepts of control system</option>
+<option value="2">Module 2: Mathematical modelling of systems</option>
+<option value="3">Module 3: Time response analysis</option>
+<option value="4">Module 4: Frequency response analysis</option>
+<option value="5">Module 5:Stability</option>
+<option value="6">Module 6: Hydraulic control system</option>
+<option value="7">Module 7 Pneumatic control system</option>
+<option value="8">Module 8 :State space analysis</option>

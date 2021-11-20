@@ -1,0 +1,8 @@
+<option value="1">Automobile Electrical Systems and electronics system</option>
+<option value="2">Battery system</option>
+<option value="3">Starting System</option>
+<option value="4">Charging System</option>
+<option value="5">Ignition System</option>
+<option value="6">Lighting System</option>
+<option value="7">Horns</option>
+<option value="8">Electrical Equipments and Accessories</option>

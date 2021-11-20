@@ -1,0 +1,17 @@
+<option></option>
+<option value="2140203">AUTOMOBILE ENGINES</option>
+<option value="2140601">ADVANCE SURVEYING</option>
+<option value="2140603">STRUCTURAL ANALYSIS</option>
+<option value="2140606">NUMERICAL & STATISTICAL METHODS (AUTO/CIVIL)</option>
+<option value="2140607">BUILDING AND TOWN PLANNING</option>
+<option value="2140608">CONCRETE TECHNOLOGY</option>
+<option value="2140702">OPERATING SYSTEM</option>
+<option value="2140705">OBJECT ORIENTED PROGRAMMING WITH C++</option>
+<option value="2140706">NUMERICAL & STATISTICAL METHODS (CP/IT)</option>
+<option value="2140707">COMPUTER ORGANIZATION</option>
+<option value="2140709">COMPUTER NETWORK</option>
+<option value="2141901">MECHANICAL MEASUREMENT & METROLOGY</option>
+<option value="2141905">COMPLEX VARIABLES & NUMERICAL METHODS</option>
+<option value="2141906">FLUID MECHANICS</option>
+<option value="2141908">MANUFACURING PROCESS II</option>
+<option value="2141907">MACHINE DESIGN AND INDUSTRIAL DRAFTING</option>

@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/geturi.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+        var id = decodeURI(getUrlVars()["id"]);
+        var name = decodeURI(getUrlVars()["name"]);
+        var mobile1 = decodeURI(getUrlVars()["mobile1"]);        
+		var institute = decodeURI(getUrlVars()["institute"]);
+		var designation = decodeURI(getUrlVars()["designation"]);
+		var aadhar = decodeURI(getUrlVars()["aadhar"]);
+		var pan = decodeURI(getUrlVars()["pan"]);
+		var bank = decodeURI(getUrlVars()["bank"]);
+		var branch = decodeURI(getUrlVars()["branch"]);
+		var account = decodeURI(getUrlVars()["account"]);
+		
+        $("#id").val(id);
+        $("#name").val(name);
+        $("#mobile1").val(mobile1);        
+		$("#institute").val(institute);
+		$("#designation").val(designation);
+		$("#aadhar").val(aadhar);
+		$("#pan").val(pan);
+		$("#bank").val(bank);
+		$("#branch").val(branch);
+		$("#account").val(account);
+        $("#update").click(function() {
+            var id = $("#id").val();
+            var name = $("#name").val();
+            var mobile1 = $("#mobile1").val();
+            var mobile2 = $("#mobile2").val();
+			var institute = $("#institute").val();
+            var dataString = "id=" + id + "&name=" + name + "&mobile1=" + mobile1 + "&institute=" + institute + "&update=";
+            $.ajax({
+                type: "POST",
+                url: "https://kitetech.ac.in/Rohan/update.php",
+                data: dataString,
+                crossDomain: true,
+                cache: false,
+                beforeSend: function() {
+                    $("#update").val('Connecting...');
+                },
+                success: function(data) {
+                    if (data == "success") {
+                        alert("Updated");
+                        $("#update").val("Update");
+                    } else if (data == "error") {
+                        alert("error");
+                    }
+                }
+            });
+
+        });
+        $("#delete").click(function() {
+            var id = $("#id").val();
+            var dataString = "id=" + id + "&delete=";
+            $.ajax({
+                type: "GET",
+                url: "https://kitetech.ac.in/Rohan/delete.php",
+                data: dataString,
+                crossDomain: true,
+                cache: false,
+                beforeSend: function() {
+                    $("#delete").val('Connecting...');
+                },
+                success: function(data) {
+                    if (data == "success") {
+                        alert("Deleted");
+                        $("#delete").val("Delete");
+                    } else if (data == "error") {
+                        alert("error");
+                    }
+                }
+            });
+
+        });
+    });
+    </script>
+</head>
+
+<body>
+
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <a href="index.html" class="button button-clear">Home</a>
+        <h1 class="title"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:45px;width:45px;" /></h1>
+        <a class="button button-clear" href="readjson.html">Get</a>
+    </div>
+
+    <br/>
+    <br/>
+    <div class="list">
+        <input type="hidden" id="id" value="" />
+        <div class="item">
+            <label>Name</label>
+            <input type="text" id="name" value="" />
+        </div>
+        <div class="item">
+            <label>Mobile </label>
+            <input type="text" id="mobile1" value="" />
+        </div>
+        <div class="item">
+            <label>Institute</label>
+            <input type="text" id="institute" value="" />
+        </div>	
+        <div class="item">
+            <label>Designation</label>
+            <input type="text" id="designation" value="" />
+        </div>	
+        <div class="item">
+            <label>Aadhar No.</label>
+            <input type="text" id="aadhar" value="" />
+        </div>		
+        <div class="item">
+            <label>Pan No.</label>
+            <input type="text" id="pan" value="" />
+        </div>	
+        <div class="item">
+             <label>Bank</label>
+            <input type="text" id="bank" value="" />	
+        </div>	
+        <div class="item">			
+            <label>Branch</label>
+            <input type="text" id="branch" value="" />			
+        </div>	
+        <div class="item">
+            <label>Account No.</label>
+            <input type="text" id="account" value="" />
+        </div>			
+		
+       <!-- <div class="item">
+            <input type="button" id="update" class="button button-block" value="Update" />
+            <input type="button" id="delete" class="button button-block" value="Delete" />
+        </div>-->
+    </div>
+</body>
+
+</html>

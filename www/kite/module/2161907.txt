@@ -1,0 +1,7 @@
+<option value="1">Location Selection and Plant Layout</option>
+<option value="2">Production Planning and Control</option>
+<option value="3">Production Planning and Control</option>
+<option value="4">Job Evaluation and Wage Plan</option>
+<option value="5">Industrial Legislation</option>
+<option value="6">Inspection and Statistical Quality Control</option>
+<option value="7">Entrepreneurship</option>

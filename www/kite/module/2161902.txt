@@ -1,0 +1,11 @@
+<option value="1">Introduction</option>
+<option value="2">Fuel Air Cycles and Actual Cycles</option>
+<option value="3">Combustion</option>
+<option value="4">Fuels and its supply system for SI and CI engine</option>
+<option value="5">Ignition and Governing System</option>
+<option value="6">Supercharging</option>
+<option value="7">Combustion in SI and CI Engines</option>
+<option value="8">Engine Lubrication and Cooling</option>
+<option value="9">Measurement and Testing of IC engines</option>
+<option value="10">Engine Emission and their control</option>
+<option value="11">Application of diesel engines</option>

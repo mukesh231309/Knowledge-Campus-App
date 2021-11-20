@@ -1,0 +1,10 @@
+<option value="11">Includes dimensioning methods, different types of line, construction of different polygon, divide the line and angle in parts, use of stenci</option>
+<option value="21">Plane scale and diagonal scale</option>
+<option value="31">Ellipse, Paraboal and Hyperbola</option>
+<option value="32">Cycloid,Involute and Spiral</option>
+<option value="41">Projection of Point and Lline</option>
+<option value="42">Projection Of Plane</option>
+<option value="51">Projection of solid</option>
+<option value="52">Section of solid</option>
+<option value="61">Orthographic projection</option>
+<option value="71">Isometric projection</option>

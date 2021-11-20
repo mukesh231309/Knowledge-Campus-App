@@ -1,0 +1,114 @@
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+<style>
+body{width:auto;}
+.frmSearch {border: 1px solid #a8d4b1;background-color: #C2C2C2;margin: 45px 0px;padding:10px;border-radius:4px;}
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+.sub-menu {
+    padding: 0;
+    max-height: 60em; 
+    overflow-y: auto;
+}
+</style>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+	$("#search-box").keyup(function(){
+		$.ajax({
+		type: "POST",
+		url: "https://kitetech.ac.in/App/readCountry.php",
+		data:'keyword='+$(this).val(),
+		beforeSend: function(){
+			$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+		},
+		success: function(data){
+			$("#suggesstion-box").show();
+			$("#suggesstion-box").html(data);
+			$("#search-box").css("background","#FFF");
+		}
+		});
+	});
+});
+
+function selectCountry(val) {
+$("#search-box").val(val);
+$("#suggesstion-box").hide();
+}
+</script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+ $("#search-box").focus(function(){
+	$("#listview").empty();	
+	 });
+ $("#get").click(function(){
+ var username=localStorage.username;
+  var month=$("#month").val();
+	$("#listview").empty();
+        var url = "https://kitetech.ac.in/App/jsonall-kin.php?username="+username+"&month="+month;
+        $.getJSON(url, function(result) {
+		if (!result[0]) alert("No Record Found...!");
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var stid = field.stid;
+				//var username = field.username;
+				//var std = field.std;
+                var date = field.date;
+                //var subject = field.subject;
+                var class1 = field.class;
+				var remark = field.remark;
+				var time = field.time;
+				var des = field.des;
+				//var file = field.file;
+				//if($.trim(file).length>0){
+				//var file = "<img src=https://kitetech.ac.in/App/uploads/"+file+" width=100% height=auto>";}
+
+                $("#listview").append("<a class='item' ><span class='item-note'> </span><table width=100%><tr><td>"+date+"</td><td>"+time+"</td></tr><tr><td>"+class1+"</td></tr><td>"+remark+"</td></td><tr><td colspan=3>"+des+"</td></tr></table></a>");
+
+            });
+        });
+		});
+    });
+    </script>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <!--<h1><a href="index-kin.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+		<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">MONTHLY REPORT</h1><p 	class="button button-clear" id="username"></p>
+    </div>
+<div class="frmSearch">
+<!--<input type="text" id="search-box" placeholder="Name" />-->
+
+			<select id="month" style="width: 200px" >
+				<option value="01"><B>JANUARY</B></option>
+				<option value="02">FEBRUARY</option>
+				<option value="03">MARCH</option>
+				<option value="04">APRIL</option>
+				<option value="05">MAY</option>
+				<option value="06">JUNE</option>
+				<option value="07">JULY</option>
+				<option value="08">AUGUST</option>
+				<option value="09">SEPTEMBER</option>
+				<option value="10">OCTOBER</option>
+				<option value="11">NOVEMBER</option>
+				<option value="12">DECEMBER</option>
+			</select>
+<button id="get">VIEW</button>
+<div id="suggesstion-box"></div>
+</div>
+        <ul class="sub-menu" id="listview">
+    </ul>
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+</html>

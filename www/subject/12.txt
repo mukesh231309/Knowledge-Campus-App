@@ -1,0 +1,9 @@
+<option>Physics</option>
+<option>Chemistry</option>
+<option>Maths</option>
+<option>Biology</option>
+<option>Botony</option>
+<option>Zoology</option>
+<option>Computer</option>
+<option>Sanskrit</option>
+<option>English</option>

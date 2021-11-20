@@ -1,0 +1,10 @@
+<option value="1">Introduction</option>
+<option value="2">Introduction to Surveying</option>
+<option value="3">Linear Measurement</option>
+<option value="4">Angular Measurement</option>
+<option value="5">Leveling</option>
+<option value="6">Building Materials</option>
+<option value="7">Building Construction</option>
+<option value="8">Building Planning and Drawing</option>
+<option value="9">Water Resources</option>
+<option value="10">Transportation Engineering</option>

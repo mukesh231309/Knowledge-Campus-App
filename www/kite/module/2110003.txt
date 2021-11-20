@@ -1,0 +1,9 @@
+<option value="1">Introduction to computer and programming</option>
+<option value="2">Fundamentals of C</option>
+<option value="3">Control structure in C</option>
+<option value="4">Array and String</option>
+<option value="5">Functions</option>
+<option value="6">Pointers</option>
+<option value="7">Structure</option>
+<option value="8">Dynamic memory allocation</option>
+<option value="9">File management</option>

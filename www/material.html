@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+
+<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+		<script>
+		$(function() {
+					$("#std").change(function() {
+				$("#time").load("timings/" + $(this).val() + ".txt");
+			});	
+			
+			$("#std").change(function() {
+				$("#subject").load("subject/" + $(this).val() + ".txt");
+			
+			});		
+
+
+		});
+	</script>
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+$(document).ready(function(){
+ $("#add").click(function(){
+	var url="https://kitetech.ac.in/App/auth-std.php?callback=?";	
+        
+            console.log("submit event");
+            var fd = new FormData(document.getElementById("fileinfo"));
+            fd.append("label", "");
+            $.ajax({
+              url: "https://kitetech.ac.in/App/material.php",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+            }).done(function( data ) {
+                console.log("PHP Output:");
+                console.log( data );
+				alert("Successful");
+            });
+//            return false;
+
+});
+});		
+    </script>	
+    <script type="text/javascript">
+    $(document).ready(function() {
+	var dd = new Date();
+	var hh = dd.getHours();
+    var mm = dd.getMinutes();
+	if(mm<10){mm='0'+mm;}
+	var tt = hh+""+mm;
+	//if(tt>2000){alert("sorry, Not Allowed after 8:00 PM.");
+	//window.location.href = "index.html";}
+	
+	var username=localStorage.username;
+        var url = "https://kitetech.ac.in/App/json.php?username="+username;
+        $.getJSON(url, function(result) {
+		//if (!result[0]) alert("No Record Found...!");
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var stid = field.stid;
+				var num = field.num;
+				var std = field.std;
+                var date = field.date;
+                var subject = field.subject;
+                var class1 = field.class;
+				var remark = field.remark;
+				var time = field.time;
+				var des = field.des;
+				var file = field.file;
+				if($.trim(file).length>0){
+				var file = "<img src=https://kitetech.ac.in/App/uploads/"+file+" width=100% height=auto>";}
+
+               // $("#listview").append("<a class='item' href='update_d.html?num=" + num + "'><span class='item-note'> > </span><p>Std:"+std+"&nbsp;&nbsp;"+time+"&nbsp;&nbsp;</p><p>"+ subject +"&nbsp;|&nbsp;"+class1+"&nbsp;&nbsp;|&nbsp;"+remark+"</p><div>"+des+"</div><p>"+file+"</p></a>");
+				$("#listview").append("<a class='item' ><span class='item-note'> </span><table width=100%><tr><td>Std:"+std+"</td><td>"+time+"</td></tr><tr><td>"+ subject +"</td><td>"+class1+"</td><td>"+remark+"</td></td></tr><tr><td colspan=3>"+des+"</td></tr></table><p>"+file+"</p></a>");
+            });
+        });
+    });
+	
+	function myFunction() {
+    var d = new Date();
+	var h = d.getHours();
+    var m = d.getMinutes();
+	if(m<10){m='0'+m;}
+	var t = h+""+m;
+	
+	var time = document.getElementById("time").value;
+	h1=time.substr(0, 2);
+	m1=time.substr(3, 2);
+	var t1 = h1+""+m1;
+	//h1=h1.replace(/\b0+/g, '')
+	t=parseInt(t);
+	t1=parseInt(t1);
+	//m=parseInt(m);
+	//m1=parseInt(m1);
+	//document.getElementById("demo").innerHTML = m1;
+	if(t1>t){alert("sorry, Not Allowed.");
+	window.location.href = "index.html";
+	}
+	}
+
+    </script>	
+
+<script>
+$(document).ready(function(){
+ $(".12").hide();
+ $(".11").hide();
+ $(".10").hide(); 
+ $(".9").hide();  
+ $(".1").hide();   
+ $(".2").hide();  
+ $(".3").hide(); 
+ $(".4").hide(); 
+ $(".5").hide(); 
+ $(".6").hide(); 
+ $(".7").hide(); 
+ $(".8").hide(); 
+
+ 
+    $("#std").change(function(){
+	$('#1E').prop("checked", false); 
+	$('#1G').prop("checked", false); 
+	$('#1ALL').prop("checked", false); 
+	$('#2E').prop("checked", false); 
+	$('#2G').prop("checked", false); 	
+	$('#2ALL').prop("checked", false); 
+	$('#3E').prop("checked", false); 
+	$('#3G').prop("checked", false); 	
+	$('#3ALL').prop("checked", false); 	
+	$('#4E').prop("checked", false); 
+	$('#4G').prop("checked", false); 
+	$('#4ALL').prop("checked", false); 
+	$('#5E').prop("checked", false); 
+	$('#5G').prop("checked", false); 
+	$('#5ALL').prop("checked", false); 
+	$('#6E1').prop("checked", false); 
+	$('#6E2').prop("checked", false); 
+	$('#6G').prop("checked", false); 
+	$('#6ALL').prop("checked", false); 
+	$('#7E1').prop("checked", false); 
+	$('#7E2').prop("checked", false); 
+	$('#7G').prop("checked", false); 
+	$('#7ALL').prop("checked", false); 
+	$('#8E1').prop("checked", false); 
+	$('#8E2').prop("checked", false); 
+	$('#8G').prop("checked", false); 
+	$('#8ALL').prop("checked", false); 	
+
+		 	
+		 	$('#11NG1').prop("checked", false);
+			$('#11NE1').prop("checked", false);		 
+			$('#11JE1').prop("checked", false);	
+			$('#11JG1').prop("checked", false);			 
+			$('#NJE').prop("checked", false);
+			$('#NJG').prop("checked", false);
+			$('#11ALL').prop("checked", false);
+			
+			$('#NG1').prop("checked", false);
+			$('#NG2').prop("checked", false);
+			$('#NE1').prop("checked", false);		 
+			$('#NJE').prop("checked", false);
+			$('#JE1').prop("checked", false);	
+			$('#JG1').prop("checked", false);	
+			$('#ALL').prop("checked", false);
+
+			$('#G1').prop("checked", false);
+			$('#G2').prop("checked", false);
+			$('#E4').prop("checked", false);
+			$('#E5').prop("checked", false);
+			$('#E6').prop("checked", false);
+			$('#S1').prop("checked", false);
+			$('#S2').prop("checked", false);
+			$('#10ALL').prop("checked", false);	
+
+			$('#G1').prop("checked", false);
+			$('#G2').prop("checked", false);
+			$('#E1').prop("checked", false);
+			$('#E2').prop("checked", false);
+			$('#E3').prop("checked", false);
+			$('#9ALL').prop("checked", false);				
+	
+	var std=$("#std").val();
+	if(std==12){
+         $(".12").show();
+		 }else{$(".12").hide();}
+	if(std==11){
+         $(".11").show();
+		 }else{$(".11").hide();}	
+	if(std==10){
+         $(".10").show();
+		 }else{$(".10").hide();}			 
+    
+	if(std==9){
+         $(".9").show();
+		 }else{$(".9").hide();}		
+
+	if(std==1){
+         $(".1").show();
+		 }else{$(".1").hide();}		
+	if(std==2){
+         $(".2").show();
+		 }else{$(".2").hide();}	
+	if(std==3){
+         $(".3").show();
+		 }else{$(".3").hide();}	
+	if(std==4){
+         $(".4").show();
+		 }else{$(".4").hide();}				 
+	if(std==5){
+         $(".5").show();
+		 }else{$(".5").hide();}	
+	if(std==6){
+         $(".6").show();
+		 }else{$(".6").hide();}	
+	if(std==7){
+         $(".7").show();
+		 }else{$(".7").hide();}		
+	if(std==8){
+         $(".8").show();
+		 }else{$(".8").hide();}			 
+	});
+
+});
+</script>	
+    <title>Material</title>
+</head>
+<body >
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<!--<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+	<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Material</h1>
+        <p 	class="button button-clear" id="username"></p>
+    </div>
+    <div class="padding" style="margin-top:75px;">
+	<!--<p><font color="red"> *</font> Mandatory fields.</p>-->
+        <label class="item-input">
+            <span class="input-label">Standard<font color="red"> *</font></span>
+            <select id="std" style="width: 200px">
+				<option selected value=""></option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>	
+				<option value="11COMM">11COMM</option>
+				<option value="12COMM">12COMM</option>
+
+			</select>		
+        </label>	
+
+	
+        <label class="item-input">
+            <span class="input-label">Subject</span>
+		<select id="subject" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>		
+        </label>
+
+        <label class="item-input">
+            <span class="input-label">Topic<font color="red"> *</font></span>
+
+			<textarea rows="3" cols="100" id="topic" onblur='this.value = this.value.toUpperCase();' ></textarea>
+        </label>	
+
+			<label class="item-input">
+			<span class="input-label">Class<font color="red"> *</font></span> 
+			</label>
+			
+			<div class="12">
+			<input type="checkbox" id="NG1" value="">NG1 &emsp;
+			<input type="checkbox" id="JE1" value="">JE1 &emsp;			
+			<input type="checkbox" id="NE1" value="">NE1 &emsp;
+			<input type="checkbox" id="JG1" value="">JG1 &emsp;			
+			</br>
+			<input type="checkbox" id="NG2" value="">NG2 &emsp;			
+			<input type="checkbox" id="NJE" value="">NJE &emsp;			
+			<input type="checkbox" id="ALL" value="">ALL &emsp;	
+			</div>		
+			<div class="11">
+			<input type="checkbox" id="11NG1" value="">NG1 &emsp;
+			<input type="checkbox" id="11JE1" value="">JE1 &emsp;			
+			<input type="checkbox" id="11NE1" value="">NE1 &emsp;
+			<input type="checkbox" id="11JG1" value="">JG1 &emsp;	
+			<input type="checkbox" id="NJG" value="">NJG &emsp;	
+			<input type="checkbox" id="NJE" value="">NJE &emsp;	
+			<input type="checkbox" id="11ALL" value="">ALL &emsp;	
+			</div>	
+			<div class="10">
+			<input type="checkbox" id="S1" value="">S1 &emsp;
+			<input type="checkbox" id="S2" value="">S2 &emsp;			
+			<input type="checkbox" id="E4" value="">E4 &emsp;
+			<input type="checkbox" id="E5" value="">E5 &emsp;	
+			<input type="checkbox" id="E6" value="">E6 &emsp;	
+			<input type="checkbox" id="10ALL" value="">ALL &emsp;				
+			</div>			
+			<div class="9">
+			<input type="checkbox" id="9G1" value="">G1 &emsp;
+			<input type="checkbox" id="9G2" value="">G2 &emsp;			
+			<input type="checkbox" id="E1" value="">E1 &emsp;
+			<input type="checkbox" id="E2" value="">E2 &emsp;	
+			<input type="checkbox" id="E3" value="">E3 &emsp;	
+			<input type="checkbox" id="9ALL" value="">ALL &emsp;				
+			</div>	
+			<div class="1">
+			<input type="checkbox" id="1E" value="">E &emsp;
+			<input type="checkbox" id="1G" value="">G &emsp;	
+			<input type="checkbox" id="1ALL" value="">ALL &emsp;				
+			</div>				
+			<div class="2">
+			<input type="checkbox" id="2E" value="">E &emsp;
+			<input type="checkbox" id="2G" value="">G &emsp;	
+			<input type="checkbox" id="2ALL" value="">ALL &emsp;				
+			</div>	
+			<div class="3">
+			<input type="checkbox" id="3E" value="">E &emsp;
+			<input type="checkbox" id="3G" value="">G &emsp;	
+			<input type="checkbox" id="3ALL" value="">ALL &emsp;				
+			</div>	
+			<div class="4">
+			<input type="checkbox" id="4E" value="">E &emsp;
+			<input type="checkbox" id="4G" value="">G &emsp;	
+			<input type="checkbox" id="4ALL" value="">ALL &emsp;				
+			</div>		
+			<div class="5">
+			<input type="checkbox" id="5E" value="">E &emsp;
+			<input type="checkbox" id="5G" value="">G &emsp;	
+			<input type="checkbox" id="5ALL" value="">ALL &emsp;				
+			</div>	
+			<div class="6">
+			<input type="checkbox" id="6E1" value="">E1 &emsp;
+			<input type="checkbox" id="6E2" value="">E2 &emsp;
+			<input type="checkbox" id="6G" value="">G &emsp;	
+			<input type="checkbox" id="6ALL" value="">ALL &emsp;				
+			</div>
+			<div class="7">
+			<input type="checkbox" id="7E1" value="">E1 &emsp;
+			<input type="checkbox" id="7E2" value="">E2 &emsp;
+			<input type="checkbox" id="7G" value="">G &emsp;	
+			<input type="checkbox" id="7ALL" value="">ALL &emsp;				
+			</div>
+			<div class="8">
+			<input type="checkbox" id="8E1" value="">E1 &emsp;
+			<input type="checkbox" id="8E2" value="">E2 &emsp;
+			<input type="checkbox" id="8G" value="">G &emsp;	
+			<input type="checkbox" id="8ALL" value="">ALL &emsp;				
+			</div>	
+			
+		<!--<select id="class" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>-->
+         
+		<span class="input-label"></span>		
+		<form method="post" id="fileinfo" name="fileinfo" onsubmit="return submitForm();">
+			
+			<input type="file"  capture="camera" id="file" name="file" required />
+			</br></br>
+			<input type="submit" id="add" value="Upload" />
+		</form>        	
+		<div id="output"></div>
+		
+        
+            <button id="upload" class="button button-full button-positive">Submit</button>
+      
+        
+        
+    
+    <ul class="list" id="listview">
+    </ul>
+	
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth-std.js"></script>
+</body>
+
+</html>

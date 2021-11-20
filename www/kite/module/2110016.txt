@@ -1,0 +1,7 @@
+<option value="1">Circuit Concepts</option>
+<option value="2">Circuit Analysis Techniques</option>
+<option value="3">Operational Amplifiers Basic Ideas</option>
+<option value="4">Digital Building Blocks</option>
+<option value="5">Signal Processing</option>
+<option value="6">Communication Systems</option>
+<option value="7">Basic Control Systems</option>

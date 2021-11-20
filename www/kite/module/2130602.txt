@@ -1,0 +1,7 @@
+<option value="1">Module 1:Properties of Fluids</option>
+<option value="2">Module 2: Fluid Statics</option>
+<option value="3">Module 3:Fluid Kinematics</option>
+<option value="4">Module 4: Fluid Dynamics</option>
+<option value="5">Module 5: Flow Measuring Devices</option>
+<option value="6">Module 6: Flow Immersed Past Bodies</option>
+<option value="7">Module 7 Compressible Flow</option>

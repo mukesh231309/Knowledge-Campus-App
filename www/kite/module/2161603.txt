@@ -1,0 +1,10 @@
+<option value="1">Compression Techniques</option>
+<option value="2">Mathematical Preliminaries for Lossless Compression Models :</option>
+<option value="3">Huffman Coding</option>
+<option value="4">Arithmetic Coding</option>
+<option value="5">Dictionary Techniques</option>
+<option value="6">Predictive Coding</option>
+<option value="7">mathematical preliminaries for lossy coding</option>
+<option value="8">Vector Quantization</option>
+<option value="9">Boolean retrieval</option>
+<option value="10">XML retrieval</option>

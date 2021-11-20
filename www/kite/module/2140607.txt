@@ -1,0 +1,12 @@
+<option value="1">Introduction</option>
+<option value="2">building bye laws</option>
+<option value="3">Planning of earthquake resistant building</option>
+<option value="4">working drawing</option>
+<option value="5">perspective views</option>
+<option value="6">building sevices</option>
+<option value="7">introduction to town planning</option>
+<option value="8">town planning-1</option>
+<option value="9">land use</option>
+<option value="10">compnents of TP</option>
+<option value="11">SLUM</option>
+<option value="12">Introduction to smart city</option>

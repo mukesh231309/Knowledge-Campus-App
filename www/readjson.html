@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <script type="text/javascript">
+    $(document).ready(function() {
+	var username=localStorage.username;
+        var url = "https://kitetech.ac.in/App/json.php?username="+username;
+        $.getJSON(url, function(result) {
+		if (!result[0]) alert("No Record Found...!");
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var stid = field.stid;
+				var num = field.num;
+				var std = field.std;
+                var date = field.date;
+                var subject = field.subject;
+                var class1 = field.class;
+				var remark = field.remark;
+				var time = field.time;
+				var des = field.des;
+				var file = field.file;
+				if($.trim(file).length>0){
+				var file = "<img src=https://kitetech.ac.in/App/uploads/"+file+" width=100% height=auto>";}
+
+               // $("#listview").append("<a class='item' href='update_d.html?num=" + num + "'><span class='item-note'> > </span><p>Std:"+std+"&nbsp;&nbsp;"+time+"&nbsp;&nbsp;</p><p>"+ subject +"&nbsp;|&nbsp;"+class1+"&nbsp;&nbsp;|&nbsp;"+remark+"</p><div>"+des+"</div><p>"+file+"</p></a>");
+				$("#listview").append("<a class='item' href='update_d.html?num=" + num + "'><span class='item-note'> > </span><table width=100%><tr><td>Std:"+std+"</td><td>"+time+"</td></tr><tr><td>"+ subject +"</td><td>"+class1+"</td><td>"+remark+"</td></td><tr><td colspan=3>"+des+"</td></tr></table><p>"+file+"</p></a>");
+            });
+        });
+    });
+    </script>
+<style>	
+body{width:auto;}
+.frmSearch {border: 1px solid #a8d4b1;background-color: #ffffff;margin: 45px 0px;padding:5px;border-radius:4px;}
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+.sub-menu {
+    padding: 0;
+    max-height: 42em; 
+    overflow-y: auto;
+}
+</style>	
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <!--<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+		<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">YOUR DAILY REPORT</h1>
+		
+		
+
+    </div>
+    <br/>
+    <br/>
+    <ul class="sub-menu" id="listview">
+    </ul>
+
+    
+	
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>	
+</body>
+
+</html>

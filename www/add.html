@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+	
+<style>
+body{width:auto;}
+.frmSearch {border: 1px solid #a8d4b1;background-color: #C2C2C2;margin: 45px 0px;padding:10px;border-radius:4px;}
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+.sub-menu {
+    padding: 0;
+    max-height: 60em; 
+    overflow-y: auto;
+}
+</style>
+		<script>
+		$(function() {
+
+			
+			
+				$("#std").change(function() { 
+				var d = new Date();
+				var n = d.getDay();				
+				var s = document.getElementById("std").value;
+				var ns=s+n;
+				if(ns<96 && n==6){
+				$("#time").load("timings/" + "sat-kids" + ".txt");
+				}else if(ns>86 && n==6){				
+				$("#time").load("timings/" + "sat-khs" + ".txt");
+				}else{
+				$("#time").load("timings/" + $(this).val() + ".txt");
+				}				
+				});	
+			
+			$("#std").change(function() {
+				$("#class").load("textdata/" + $(this).val() + ".txt");
+			});		
+
+			$("#std").change(function() {
+				$("#subject").load("subject/" + $(this).val() + ".txt");
+			});
+		});
+	</script>
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/geturi.js"></script>
+    <script type="text/javascript">
+        function submitForm() {
+            console.log("submit event");
+            var fd = new FormData(document.getElementById("fileinfo"));
+            fd.append("label", "");
+            $.ajax({
+              url: "https://kitetech.ac.in/App/upload1.php",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+            }).done(function( data ) {
+                console.log("PHP Output:");
+                console.log( data );
+				alert("Successful");
+            });
+            return false;
+        }
+    </script>	
+    <script type="text/javascript">
+    $(document).ready(function() {
+	var dd = new Date();
+	var hh = dd.getHours();
+    var mm = dd.getMinutes();
+	if(mm<10){mm='0'+mm;}
+	var tt = hh+""+mm;
+	if(tt>2200){alert("sorry, Not Allowed after 10:00 PM.");
+	window.location.href = "index.html";}
+	
+	var username=localStorage.username;
+	
+		var num1 = decodeURI(getUrlVars()["num"]);
+		var del = decodeURI(getUrlVars()["del"]);
+//alert(del);
+if(del==1){
+		$.ajax({
+					type: "POST",
+				 url : "https://kitetech.ac.in/App/dd-school.php?num="+num1+"&username="+username,
+					success: function(response)
+						{
+                            window.location.href = "add.html";
+						}
+					});
+}			
+        var url = "https://kitetech.ac.in/App/json.php?username="+username;
+        $.getJSON(url, function(result) {
+		//if (!result[0]) alert("No Record Found...!");
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var stid = field.stid;
+				var num = field.num;
+				var std = field.std;
+                var date = field.date;
+                var subject = field.subject;
+                var class1 = field.class;
+				var remark = field.remark;
+				var time = field.time;
+				var des = field.des;
+				var file = field.file;
+				if($.trim(file).length>0){
+				var file = "<img src=https://kitetech.ac.in/App/uploads/"+file+" width=100% height=auto>";}
+
+               // $("#listview").append("<a class='item' href='update_d.html?num=" + num + "'><span class='item-note'> > </span><p>Std:"+std+"&nbsp;&nbsp;"+time+"&nbsp;&nbsp;</p><p>"+ subject +"&nbsp;|&nbsp;"+class1+"&nbsp;&nbsp;|&nbsp;"+remark+"</p><div>"+des+"</div><p>"+file+"</p></a>");
+				$("#listview").append("<a class='item' ><span class='item-note'> </span><table width=100%><tr><td>Std:"+std+"</td><td>"+time+"</td></tr><tr><td>"+ subject +"</td><td>"+class1+"</td><td>"+remark+"</td></td></tr><tr><td colspan=3>"+des+"</td><td><a href='add.html?num="+num+"&username="+username+"&del=1' style='text-decoration:none;'>&emsp;X</a></td></tr></table><p>"+file+"</p></a>");
+            });
+        });
+    });
+	
+	function myFunction() {
+    var d = new Date();
+	var h = d.getHours();
+    var m = d.getMinutes();
+	if(m<10){m='0'+m;}
+	var t = h+""+m;
+	
+	var time = document.getElementById("time").value;
+	h1=time.substr(0, 2);
+	m1=time.substr(3, 2);
+	var t1 = h1+""+m1;
+	//h1=h1.replace(/\b0+/g, '')
+	t=parseInt(t);
+	t1=parseInt(t1);
+	//m=parseInt(m);
+	//m1=parseInt(m1);
+	//document.getElementById("demo").innerHTML = m1;
+	//if(t1>t){alert("sorry, Not Allowed.");
+	//window.location.href = "index.html";
+	//}
+	}
+
+    </script>	
+    <title>Daily Report</title>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<!--<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+	<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Daily Report</h1>
+        <p 	class="button button-clear" id="username"></p>
+    </div>
+    <div style="margin-top:45px;">
+	<!--<p><font color="red"> *</font> Mandatory fields.</p>-->
+        <label class="item-input">
+            <span class="input-label">Standard<font color="red"> *</font></span>
+            <select id="std" style="width: 200px">
+				<option selected value=""></option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>	
+				<option value="11COMM">11COMM</option>
+				<option value="12COMM">12COMM</option>
+				<option value="other">other</option>	
+			</select>		
+        </label>	
+        <label class="item-input">
+            <span class="input-label">Time</span>
+		<select id="time" onChange="myFunction()" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>	
+        </label>
+		
+        <label class="item-input">
+            <span class="input-label">Class</span>
+		<select id="class" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>
+        </label>	
+        <label class="item-input">
+            <span class="input-label">Subject</span>
+		<select id="subject" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>		
+        </label>
+        <label class="item-input">
+            <span class="input-label">Activity<font color="red"> *</font></span>		
+			<select id="activity" style="width: 200px" >
+				<option value=""><B></B></option>
+				<option value="Teaching"><B>Teaching</B></option>
+				<option value="Revision">Revision</option>
+				<option value="Reading">Reading</option>
+				<option value="Supervision">Supervision</option>
+				<option value="Examination">Examination</option>
+				<option value="Paper Checking">Paper Checking</option>
+				<option value="Material Preparation">Material Preparation</option>
+				<option value="Meeting">Meeting</option>
+				<option value="Counselling">Counselling</option>
+				<option value="Other">Other</option>
+			</select>
+		</label>		
+        <label class="item-input">
+            <span class="input-label">Room No</span>
+            <input type="text" id="room" value="" />
+        </label>
+        <label class="item-input">
+            <span class="input-label">Description<font color="red"> *</font></span>
+            <!--<input type="text" id="des" value="" />-->
+			<textarea rows="3" cols="100" id="des" onblur='this.value = this.value.toUpperCase();' ></textarea>
+        </label>
+<!--		
+		<center><b>OR</b></center>	
+        <label class="item-input"> 
+		<span class="input-label"></span>		
+		<form method="post" id="fileinfo" name="fileinfo" onsubmit="return submitForm();">
+			
+			<input type="file" accept="image/*" capture="camera" id="file" name="file" required />
+			<input type="submit" class="button button-small button-assertive" value="Upload" />
+		</form>        	
+		<div id="output"></div>
+		</label>-->
+        <label class="item-input">
+            <button class="button button-block button-positive" id="add">Add</button>
+        </label>
+        
+        
+    </div>
+    <ul class="sub-menu" id="listview">
+    </ul>
+	
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

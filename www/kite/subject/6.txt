@@ -1,0 +1,22 @@
+<option></option>
+<option value="2160701">SOFTWARE ENGINEERING</option>
+<option value="2161603">DATA COMPRESSION AND DATA RETRIVAL</option>
+<option value="2160704">THEORY OF COMPUTATION</option>
+<option value="2160708">WEB TECHNOLOGY</option>
+<option value="2160711">DOT NET</option>
+<option value="2161901">DOM</option>
+<option value="2161907">INDUSTRIAL ENGINEERING</option>
+<option value="2160208">AUTOMOTIVE COMPUTER CONTROLLED SYSTEM</option>
+<option value="2160602">APPLIED FLUID MECHANICS</option>
+<option value="2161908">REFRIGERATION AND AIR CONDITIONING</option>
+<option value="2160207">ALTERNATIVE FUEL AND POWER SYSTEM</option>
+<option value="2161909">PRODUCTION TECHNOLOGY</option>
+<option value="2161903">COMPUTER AIDED DESIGN</option>
+<option value="2160707">ADVANCED JAVA</option>
+<option value="2160205">AUTOMOBILE CHASSIS AND BODY ENGINEERING</option>
+<option value="2161902">I C ENGINES</option>
+<option value="2160601">CONSTRUCTION MANAGEMENT AND EQUIPMENT</option>
+<option value="2160604">WATER AND WASTE WATER ENGINEERING</option>
+<option value="2160608">URBAN TRANSPORTATION SYSTEM</option>
+<option value="2160603">RAILWAY, BRIDGE AND TUNNEL ENGINEERING</option>
+<option value="2160607">ELEMENTARY STRUCTURAL DESIGN</option>

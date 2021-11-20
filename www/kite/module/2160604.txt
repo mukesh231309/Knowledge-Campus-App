@@ -1,0 +1,7 @@
+<option value="1">Water treatment plant:</option>
+<option value="2">Collection and conveyance of raw water from source</option>
+<option value="3">Water treatment processes and treatment units</option>
+<option value="4">Distribution system</option>
+<option value="5">Collection of sewage &estimation of its discharge</option>
+<option value="6">Unit operations/ processes for wastewater treatment:</option>
+<option value="7">Design of wastewater treatment units:</option>

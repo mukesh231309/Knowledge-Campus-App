@@ -1,0 +1,10 @@
+<option value="1">Biofuels: Alcohol</option>
+<option value="2">Biofuels: Bio-diesels</option>
+<option value="3">Biofuels: Biogas</option>
+<option value="4">LPG & CNG</option>
+<option value="5">Hydrogen</option>
+<option value="6">Fuel Cells</option>
+<option value="7">Electric & Hybrid Vehicles</option>
+<option value="8">Solar Powered Vehicles</option>
+<option value="9">Non-conventional I.C. Engine</option>
+<option value="10">Other Alternative Fuels</option>

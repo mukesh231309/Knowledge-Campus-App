@@ -1,0 +1,6 @@
+<option value="1">Introduction to Some Special Functions</option>
+<option value="2">Fourier Series and Fourier integral</option>
+<option value="3">Ordinary Differential Equations and Applications</option>
+<option value="4">Series Solution of Differential Equations</option>
+<option value="5">Laplace Transforms and Applications</option>
+<option value="6">Partial Differential Equations and Applications</option>

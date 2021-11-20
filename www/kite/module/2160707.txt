@@ -1,0 +1,7 @@
+<option value="1">Java Networking</option>
+<option value="2">JDBC Programming</option>
+<option value="3">Servlet API and Overview</option>
+<option value="4">Java Server Pages</option>
+<option value="5">Java Server Faces2.0</option>
+<option value="6">Hibernate 4.0</option>
+<option value="7">Java Web Frameworks: Spring MVC</option>

@@ -1,0 +1,9 @@
+<option value="1">Fundamentals of Statically Determinate Structures</option>
+<option value="2">Displacement of Determinate Beams and Plane Truss</option>
+<option value="3">Direct and Bending stresses</option>
+<option value="4">Columns and Struts</option>
+<option value="5">Arches, Cables and Suspension Bridges</option>
+<option value="6">Thin cylinder</option>
+<option value="7">Fixed Beams & Consistent Deformation Method</option>
+<option value="8">Strain Energy</option>
+

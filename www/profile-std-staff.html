@@ -1,0 +1,188 @@
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+<style>
+body{width:auto;}
+.frmSearch {border: 1px solid #a8d4b1;background-color: #ffffff;margin: 45px 0px;padding:5px;border-radius:4px;}
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+ul {
+    padding: 15px;
+    
+	background-color: #ffffff;
+}
+img {
+    border-radius: 50%;
+}
+</style>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+	$("#search-box").keyup(function(){
+		$.ajax({
+		type: "POST",
+		url: "https://kitetech.ac.in/App/readCountry-std.php",
+		data:'keyword='+$(this).val(),
+		beforeSend: function(){
+			$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+		},
+		success: function(data){
+			$("#suggesstion-box").show();
+			$("#suggesstion-box").html(data);
+			$("#search-box").css("background","#FFF");
+		}
+		});
+	});
+});
+
+function selectCountry(val) {
+$("#search-box").val(val);
+$("#suggesstion-box").hide();
+}
+</script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+    var username1=localStorage.username;
+	        var url = "https://kitetech.ac.in/App/student.php";
+        $.getJSON(url, function(result) {
+		
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var name = field.name;
+                var class1 = field.class;
+
+ 
+
+                $("#listview4").append("<a class='item' href='search1-std.html?id="+id+"'><span class='item-note'> </span><p>"+name+"&nbsp;&nbsp;"+class1+"</p></a>");
+            });
+        });
+
+ $("#search-box").focus(function(){
+	$("#listview").empty();	
+	$("#listview1").empty();
+	$("#listview3").empty();
+	 });
+ $("#get").click(function(){
+ var id=$("#search-box").val();
+//alert(date1);
+	$("#listview").empty();
+	        var url = "https://kitetech.ac.in/App/student-std.php?id="+id;
+        $.getJSON(url, function(result) {
+		
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var name = field.name;
+                var class1 = field.class;
+				var std = field.std;
+				if(username1=='kd'){
+				var address1 = field.address1;
+				var address2 = field.address2;
+				var city = field.city;
+				var pmobile = field.pmobile;
+				var whatsapp = field.whatsapp;
+				}
+				var year = field.year;
+				var file = field.pp;
+				if($.trim(file).length>0){
+				var file = "<img src=https://kitetech.ac.in/App/pp/"+file+" style=width:100px;height:100px;>";
+				}else{var file = "<img src=images/user.png style=width:100px;height:100px;>";}
+
+
+        
+
+               $("#listview3").append("<p>"+file+"</p>");
+ 
+
+                $("#listview1").append("<p>&emsp; Name: "+name+"</p><p>&emsp;  Uid: "+id+"</p><p>&emsp;  Std: "+std+"</p><p>&emsp;  Class: "+class1+"</p><p>&emsp; Admission: "+year+"</p><p>&emsp; Address: </br>&emsp; &emsp; "+address1+"</p><p>&emsp; &emsp; "+address2+"</p><p>&emsp; City: "+city+"</p><p>&emsp; WhatsApp: "+whatsapp+"</p><p>&emsp; Contact: "+pmobile+"</p>");
+				$("#listview2").append("<p>&emsp; Address: </br>&emsp; &emsp; "+address1+"</p><p>&emsp; &emsp; "+address2+"</p><p>&emsp; City: "+city+"</p><p>&emsp; WhatsApp: "+whatsapp+"</p><p>&emsp; Contact: "+pmobile+"</p>");
+            });
+        });
+		
+	        var url = "https://kitetech.ac.in/App/att-std-summary.php?username="+id;
+        $.getJSON(url, function(result) {
+
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var month = field.month;
+				var year = field.year;
+				var p = field.p;
+				var a = field.a;
+				var cnt = field.cnt;
+				var pper = field.pper;
+				var aper = field.aper;
+				var mname = field.month_name;
+		
+               //alert(pper);       
+				
+				
+				$("#listview").append("<table width=100%><tr><td align=left, width=40%>"+mname+","+year+"</td><td align=left, width=30%>"+pper+"%</td><td align=left, width=30%>"+aper+"%</td></tr></table>");
+				//<td align=center, width=10%>"+cnt+"</td><td align=left, width=20%>"+p+"/"+a+"</td>
+				
+            });
+
+			
+        });
+		});
+    });
+    </script>
+<style>
+	[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* custom styles */
+
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  
+}
+</style>		
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <!--<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+		<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Profile </h1>
+    </div>
+<div class="frmSearch">
+
+<input type="text" id="search-box" placeholder="Surname Name Fathername OR UID" />
+
+<button id="get" class="button button-full button-positive">VIEW</button>
+<div id="suggesstion-box"></div>
+</div>
+
+<center>
+<ul class="list" id="listview3"></ul>
+</center>
+    
+	<ul class="list" id="listview1"></ul>
+
+	
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+</html>

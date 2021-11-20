@@ -1,0 +1,10 @@
+<option value="1">Hydropower Plant</option>
+<option value="2">Impact of Jet</option>
+<option value="3">Hydraulic Turbines</option>
+<option value="4">Centrifugal Pumps</option>
+<option value="5">Reciprocating Pumps</option>
+<option value="6">Reciprocating Compressors</option>
+<option value="7">Rotary Compressors</option>
+<option value="8">Centrifugal Compressors</option>
+<option value="9">Axial flow Compressors</option>
+<option value="10">Hydraulic Machines</option>

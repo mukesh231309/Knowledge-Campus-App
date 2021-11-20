@@ -1,0 +1,144 @@
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+	
+	
+	 <script type="text/javascript" src="js/geturi.js"></script>
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+	 
+<style>
+body{width:auto;}
+.frmSearch {background-color: ;margin: 45px 0px;padding:0px;border-radius:4px;}
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+</style>
+<style>
+table.darkTable {
+  font-family: "Arial Black", Gadget, sans-serif;
+  border: 2px solid #FBF7FF;
+  background-color: #4A4A4A;
+  width: 100%;
+  //height: 350px;
+  text-align: center;
+  border-collapse: collapse;
+  color: white;
+}
+table.darkTable td, table.darkTable th {
+  border: 1px solid #FFF2FB;
+  padding: 9px 9px;
+}
+table.darkTable tbody td {
+  font-size: 20px;
+  color: #E6E6E6;
+}
+table.darkTable tr:nth-child(even) {
+  background: #000058;
+}
+table.darkTable tfoot td {
+  font-size: 20px;
+}
+a
+{
+    display:block;
+    text-decoration:none;
+	border-color: white; text-align: -webkit-center; border-collapse: collapse;
+  border-spacing: 0; color: white;
+  
+  
+}
+</style>
+<style>
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+</style> 
+ 
+
+ 
+   <script type="text/javascript">
+    $(document).ready(function() {
+			var class1 = decodeURI(getUrlVars()["class"]);
+			$("#class").val(class1);	
+			var std = decodeURI(getUrlVars()["std"]);
+			$("#std").val(std);				
+			
+			
+			var class1=$("#class").val();
+			var std=$("#std").val();
+
+	var username=localStorage.username;
+	
+	var cnt=0; var p=0; var a=0; 
+        var url = "https://kitetech.ac.in/App/timetable-class.php?username="+username+"&class="+class1+"&std="+std;
+        $.getJSON(url, function(result) {
+		if (!result[0]){ 
+		alert("No Record Found...!");
+				}
+            console.log(result);
+			
+		$("#listview").append("<table width=100%><tr><td colspan='7' align='center'><b>"+std+"-"+class1+"</b></td></tr><tr><th width=50>Mon</th><th width=50>Tue</th><th width=50>Wed</td><th width=50>Thu</td><th width=50>Fri</td><th width=80>Sat</td></tr></table>");
+            $.each(result, function(i, field) {
+				var time = field.time;
+				var mon = field.mon;
+				var tue = field.tue;
+				var wed = field.wed;
+				var thu = field.thu;
+				var fri = field.fri;
+				var sat = field.sat;
+								
+        //alert(username);               
+				
+			$("#listview").append("<table id='customers'><tr><td colspan='7' align='center'><b>"+time+"</b></td></tr><tr><td width=50>"+mon+"</td><td width=50>"+tue+"</td><td width=50>"+wed+"</td><td width=50>"+thu+"</td><td width=50>"+fri+"</td><td width=50>"+sat+"</td></tr></table></a>");				
+            });
+
+        });
+		
+    }); 
+    </script>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <!--<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+		<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Student Section</h1>
+    </div>
+	</br></br></br>
+
+
+<div class="content">
+<input type="hidden" id="class" value="" readonly/>
+<input type="hidden" id="std" value="" readonly/>
+
+<ul class="list" id="listview">	 
+</div>
+
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+</html>

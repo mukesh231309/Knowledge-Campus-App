@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.top-container {
+  background-color: #f1f1f1;
+  padding: 0px;
+  text-align: center;
+}
+
+.header {
+  padding: 0px 10px;
+  background: #ddd;
+  color: #000000;
+  opacity: 1.0;
+}
+
+.content {
+  padding: 0px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 82px;
+}
+</style>
+		<!--for top header -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+ <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="js/geturi.js"></script>
+ <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+<style>
+
+.topnav {
+  overflow: hidden;
+  background-color: #000058;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+ </style>
+
+<!-- footer -->
+<style>
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+.demo h1 {
+  margin-top: 0;
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: #efefef;
+  text-align: center;
+}
+<!-- Loading gif -->
+.content {display:none;}
+.preload { width:100px;
+    height: 100px;
+    position: fixed;
+    top: 20%;
+    left: 20%;}
+</style>
+<!-- loading gif ends -->
+
+<style>
+* {box-sizing: border-box;}
+ul {list-style-type: none;}
+body {font-family:  "Helvetica Neue", Arial, sans-serif}
+
+.month {
+    padding: 10px 10px;
+    width: 100%;
+    background: #000058;
+    text-align: center;
+}
+
+.month ul {
+    margin: 0;
+    padding: 0;
+}
+
+.month ul li {
+    color: white;
+    font-size: 30px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.month .prev {
+    float: left;
+    padding-top: 10px;
+}
+
+.month .next {
+    float: right;
+    padding-top: 10px;
+}
+
+.weekdays {
+    margin: 0;
+    padding: 10px 0;
+    background-color: #ddd;
+}
+
+.weekdays li {
+    display: inline-block;
+    width: 13.6%;
+    color: #666;
+    text-align: center;
+}
+
+.days {
+    padding: 10px 0;
+	width: 100%;
+    background: #eee;
+    margin: 0;
+}
+
+.days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size:30px;
+    color: #777;
+}
+
+.days li .active {
+    padding: 5px;
+    background: #1abc9c;
+    color: white !important
+}
+
+/* Add media queries for smaller screens */
+@media screen and (max-width:720px) {
+    .weekdays li, .days li {width: 13.1%;}
+}
+
+@media screen and (max-width: 420px) {
+    .weekdays li, .days li {width: 12.5%;}
+    .days li .active {padding: 2px;}
+}
+
+@media screen and (max-width: 290px) {
+    .weekdays li, .days li {width: 12.2%;}
+}
+</style>
+ 
+ 
+
+ 
+   <script type="text/javascript">
+    $(document).ready(function() {
+			var month = decodeURI(getUrlVars()["month"]);
+			$("#month").val(month);	
+			var year = decodeURI(getUrlVars()["year"]);
+			$("#year").val(year);				
+				
+			
+			var month=$("#month").val();
+			var year=$("#year").val();
+if(month==10){var mont="October";}
+if(month==11){var mont="November";}
+if(month==12){var mont="December";}
+if(month==09){var mont="September";}
+if(month==08){var mont="August";}
+if(month==07){var mont="July";}
+if(month==06){var mont="June";}
+if(month==05){var mont="May";}
+if(month==04){var mont="April";}
+if(month==03){var mont="March";}
+if(month==02){var mont="February";}
+if(month==01){var mont="January";}
+$("#mon").append(mont);
+$("#yr").append(year);
+	var username=localStorage.username;
+	//alert(username);
+        var url = "https://kitetech.ac.in/App/month-att-std.php?username="+username+"&month="+month+"&year="+year;
+        $.getJSON(url, function(result) {
+
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var date = field.date;
+				var PA = field.PA;
+				var d = field.d;
+				var day = field.day;
+				var day = day.substr(0, 2);
+				if (day=='Su'){day='<font color=red>'+day+'</font>';}
+						
+				  //alert(d); 				  alert(PA);
+				if(d==13 && PA=='P'){var d13='<font color=blue><b>13</b></font>'; }
+				else if(d==13 && PA=='A'){ var d13='<font color=red><b>13</b></font>'; }	
+				else if(d==13 && PA==''){ var d13='<font color=black><b>13</b></font>'; }
+				$("#l13").append(d13);
+				if(d==14 && PA=='P'){var d14='<font color=blue><b>14</b></font>'; }
+				else if(d==14 && PA=='A'){ var d14='<font color=red><b>14</b></font>'; }	
+				else if(d==14 && PA==''){ var d14='<font color=black><b>14</b></font>'; }
+				$("#l14").append(d14);
+				if(d==15 && PA=='P'){var d15='<font color=blue><b>15</b></font>'; }
+				else if(d==15 && PA=='A'){ var d15='<font color=red><b>15</b></font>'; }	
+				else if(d==15 && PA==''){ var d15='<font color=black><b>15</b></font>'; }
+				$("#l15").append(d15);
+				if(d==16 && PA=='P'){var d16='<font color=blue><b>16</b></font>'; }
+				else if(d==16 && PA=='A'){ var d16='<font color=red><b>16</b></font>'; }	
+				else if(d==16 && PA==''){ var d16='<font color=black><b>16</b></font>'; }
+				$("#l16").append(d16);
+				if(d==17 && PA=='P'){var d17='<font color=blue><b>17</b></font>'; }
+				else if(d==17 && PA=='A'){ var d17='<font color=red><b>17</b></font>'; }	
+				else if(d==17 && PA==''){ var d17='<font color=black><b>17</b></font>'; }
+				$("#l17").append(d17);
+				if(d==18 && PA=='P'){var d18='<font color=blue><b>18</b></font>'; }
+				else if(d==18 && PA=='A'){ var d18='<font color=red><b>18</b></font>'; }	
+				else if(d==18 && PA==''){ var d18='<font color=black><b>18</b></font>'; }
+				$("#l18").append(d18);
+				if(d==19 && PA=='P'){var d19='<font color=blue><b>19</b></font>'; }
+				else if(d==19 && PA=='A'){ var d19='<font color=red><b>19</b></font>'; }	
+				else if(d==19 && PA==''){ var d19='<font color=black><b>19</b></font>'; }
+				$("#l19").append(d19);
+				if(d==20 && PA=='P'){var d20='<font color=blue><b>20</b></font>'; }
+				else if(d==20 && PA=='A'){ var d20='<font color=red><b>20</b></font>'; }	
+				else if(d==20 && PA==''){ var d20='<font color=black><b>20</b></font>'; }
+				$("#l20").append(d20);
+				if(d==21 && PA=='P'){var d21='<font color=blue><b>21</b></font>'; }
+				else if(d==21 && PA=='A'){ var d21='<font color=red><b>21</b></font>'; }	
+				else if(d==21 && PA==''){ var d21='<font color=black><b>21</b></font>'; }
+				$("#l21").append(d21);
+				if(d==22 && PA=='P'){var d22='<font color=blue><b>22</b></font>'; }
+				else if(d==22 && PA=='A'){ var d22='<font color=red><b>22</b></font>'; }	
+				else if(d==22 && PA==''){ var d22='<font color=black><b>22</b></font>'; }
+				$("#l22").append(d22);
+				if(d==23 && PA=='P'){var d23='<font color=blue><b>23</b></font>'; }
+				else if(d==23 && PA=='A'){ var d23='<font color=red><b>23</b></font>'; }	
+				else if(d==23 && PA==''){ var d23='<font color=black><b>23</b></font>'; }
+				$("#l23").append(d23);
+				if(d==24 && PA=='P'){var d24='<font color=blue><b>24</b></font>'; }
+				else if(d==24 && PA=='A'){ var d24='<font color=red><b>24</b></font>'; }	
+				else if(d==24 && PA==''){ var d24='<font color=black><b>24</b></font>'; }
+				$("#l24").append(d24);
+				if(d==25 && PA=='P'){var d25='<font color=blue><b>25</b></font>'; }
+				else if(d==25 && PA=='A'){ var d25='<font color=red><b>25</b></font>'; }	
+				else if(d==25 && PA==''){ var d25='<font color=black><b>25</b></font>'; }
+				$("#l25").append(d25);
+				if(d==26 && PA=='P'){var d26='<font color=blue><b>26</b></font>'; }
+				else if(d==26 && PA=='A'){ var d26='<font color=red><b>26</b></font>'; }	
+				else if(d==26 && PA==''){ var d26='<font color=black><b>26</b></font>'; }
+				$("#l26").append(d26);
+				if(d==27 && PA=='P'){var d27='<font color=blue><b>27</b></font>'; }
+				else if(d==27 && PA=='A'){ var d27='<font color=red><b>27</b></font>'; }	
+				else if(d==27 && PA==''){ var d27='<font color=black><b>27</b></font>'; }
+				$("#l27").append(d27);
+				if(d==28 && PA=='P'){var d28='<font color=blue><b>28</b></font>'; }
+				else if(d==28 && PA=='A'){ var d28='<font color=red><b>28</b></font>'; }	
+				else if(d==28 && PA==''){ var d28='<font color=black><b>28</b></font>'; }
+				$("#l28").append(d28);
+				if(d==29 && PA=='P'){var d29='<font color=blue><b>29</b></font>'; }
+				else if(d==29 && PA=='A'){ var d29='<font color=red><b>29</b></font>'; }	
+				else if(d==29 && PA==''){ var d29='<font color=black><b>29</b></font>'; }
+				$("#l29").append(d29);
+				if(d==30 && PA=='P'){var d30='<font color=blue><b>30</b></font>'; }
+				else if(d==30 && PA=='A'){ var d30='<font color=red><b>30</b></font>'; }	
+				else if(d==30 && PA==''){ var d30='<font color=black><b>30</b></font>'; }
+				$("#l30").append(d30);
+				if(d==31 && PA=='P'){var d31='<font color=blue><b>31</b></font>'; }
+				else if(d==31 && PA=='A'){ var d31='<font color=red><b>31</b></font>'; }	
+				else if(d==31 && PA==''){ var d31='<font color=black><b>31</b></font>'; }
+				$("#l31").append(d31);
+			
+				if(d==12 && PA=='P'){var d12='<font color=blue><b>12</b></font>'; }
+				else if(d==12 && PA=='A'){ var d12='<font color=red><b>12</b></font>'; }	
+				else if(d==12 && PA==''){ var d12='<font color=black><b>12</b></font>'; }
+				$("#l12").append(d12);
+				if(d==11 && PA=='P'){var d11='<font color=blue><b>11</b></font>'; }
+				else if(d==11 && PA=='A'){ var d11='<font color=red><b>11</b></font>'; }	
+				else if(d==11 && PA==''){ var d11='<font color=black><b>11</b></font>'; }
+				$("#l11").append(d11);			
+				if(d==10 && PA=='P'){var d10='<font color=blue><b>10</b></font>'; }
+				else if(d==10 && PA=='A'){ var d10='<font color=red><b>10</b></font>'; }	
+				else if(d==10 && PA==''){ var d10='<font color=black><b>10</b></font>'; }
+				$("#l10").append(d10);				
+				if(d==9 && PA=='P'){var d9='<font color=blue><b>9</b></font>'; }
+				else if(d==9 && PA=='A'){ var d9='<font color=red><b>9</b></font>'; }	
+				else if(d==9 && PA==''){ var d9='<font color=black><b>9</b></font>'; }
+				$("#l9").append(d9);
+				if(d==8 && PA=='P'){var d8='<font color=blue><b>8</b></font>'; }
+				else if(d==8 && PA=='A'){ var d8='<font color=red><b>8</b></font>'; }	
+				else if(d==8 && PA==''){ var d8='<font color=black><b>8</b></font>'; }
+				$("#l8").append(d8);
+				if(d==7 && PA=='P'){var d7=day+'</br><font color=blue><b>7</b></font>'; }
+				else if(d==7 && PA=='A'){ var d7=day+'</br><font color=red><b>7</b></font>'; }	
+				else if(d==7 && PA==''){ var d7=day+'</br><font color=black><b>7</b></font>'; }
+				$("#l7").append(d7);
+				if(d==6 && PA=='P'){var d6=day+'</br><font color=blue><b>6</b></font>'; }
+				else if(d==6 && PA=='A'){ var d6=day+'</br><font color=red><b>6</b></font>'; }	
+				else if(d==6 && PA==''){ var d6=day+'</br><font color=black><b>6</b></font>'; }
+				$("#l6").append(d6);
+				if(d==5 && PA=='P'){var d5=day+'</br><font color=blue><b>5</b></font>'; }
+				else if(d==5 && PA=='A'){ var d5=day+'</br><font color=red><b>5</b></font>'; }	
+				else if(d==5 && PA==''){ var d5=day+'</br><font color=black><b>5</b></font>'; }
+				$("#l5").append(d5); 
+				if(d==4 && PA=='P'){var d4=day+'</br><font color=blue><b>4</b></font>'; }
+				else if(d==4 && PA=='A'){ var d4=day+'</br><font color=red><b>4</b></font>'; }	
+				else if(d==4 && PA==''){ var d4=day+'</br><font color=black><b>4</b></font>'; }
+				$("#l4").append(d4);
+				if(d==3 && PA=='P'){var d3=day+'</br><font color=blue><b>3</b></font>'; }
+				else if(d==3 && PA=='A'){ var d3=day+'</br><font color=red><b>3</b></font>'; }	
+				else if(d==3 && PA==''){ var d3=day+'</br><font color=black><b>3</b></font>'; }
+				$("#l3").append(d3);
+				if(d==2 && PA=='P'){var d2=day+'</br><font color=blue><b>2</b></font>'; }
+				else if(d==2 && PA=='A'){ var d2=day+'</br><font color=red><b>2</b></font>'; }	
+				else if(d==2 && PA==''){ var d2=day+'</br><font color=black><b>2</b></font>'; }
+				$("#l2").append(d2);
+				if(d==1 && PA=='P'){var d1=day+'</br><font color=blue><b>1</b></font>'; }
+				else if(d==1 && PA=='A'){ var d1=day+'</br><font color=red><b>1</b></font>'; }	
+				else if(d==1 && PA==''){ var d1=day+'</br><font color=black><b>1</b></font>'; }	
+				$("#l1").append(d1);				
+									
+               					
+            }); 
+		
+ });
+	var cnt=0; var p=0; var a=0; 
+        var url = "https://kitetech.ac.in/App/att-std.php?username="+username+"&month="+month+"&year="+year;
+        $.getJSON(url, function(result) {
+
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var date = field.date;
+				var PA = field.PA;
+				
+				 cnt=cnt+1;
+				if(PA=='P'){ p=p+1;}
+				if(PA=='A'){ a=a+1;}	
+				if(PA=='P'){ 
+				PA='<font color=blue>'+PA+'</font>'; 
+				}
+				if(PA=='A'){ 
+				PA='<font color=red>'+PA+'</font>'; 
+				date='<font color=red>'+date+'</font>'; 
+				}					
+        //alert(username);               
+				//$("#listview").append("<table width=100%><tr><td>"+date+"</td><td>"+PA+"</td></tr></table></a>");
+				
+            });
+				var pper=(p*100/cnt).toFixed(2);
+				var aper=(a*100/cnt).toFixed(2);
+			$("#listview1").append("<table width=100%><tr><td>Total: "+cnt+"</td><td>Pre: "+p+"</td><td>("+pper+"%)</td><td>Abs: "+a+"</td><td>("+aper+"%)</td></tr></table>");
+			$("#listview2").append("<center><a href='att-cal-mon.html?month="+month+"&year="+year+"'><i class='fa fa-calendar' aria-hidden='true'></i></a>&emsp;&emsp;<a href='att-day.html?month="+month+"&year="+year+"'><i class='fa fa-list' aria-hidden='true'></i></a></center>");
+        });		
+    }); 
+    </script>
+</head>
+<body>
+<div class="preload"><img src="images/pageloader.gif">
+</div>
+<script>
+$(function() {
+    $(".preload").fadeOut(2000, function() {
+        $(".content").fadeIn(1000);        
+    });
+});
+</script>
+	<div class="topnav" id="myTopnav">
+  <a href="std-info.html"><i class="fa fa-home"></i></a>
+  <a href="attendance.html"><i class="fa fa-check-square-o" aria-hidden="true"></i> &nbsp; Attendance</a>
+  <a href="result.html"><i class="fa fa-list-alt" aria-hidden="true"></i> &nbsp; Result</i></a>
+  <a href="circulars.html"><i class="fa fa-file-text" aria-hidden="true"></i> &nbsp; Circulars</a>
+  <a href="remark.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> &nbsp; Remark</a>
+  <a href="material-std.html"><i class="fa fa-book" aria-hidden="true"></i> &nbsp; Online Material</a>
+  <a href="homework.html"><i class="fa fa-suitcase" aria-hidden="true"></i> &nbsp; Homework</a>
+  <a href="worksheet-std.html"><i class="fa fa-tasks" aria-hidden="true"></i> &nbsp; Worksheet</a>
+  <a href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; Logout</a>
+
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction1()">&#9776;</a>
+</div>
+<div class="header" id="myHeader">
+  <h3 STYLE="margin-top: 0;"><b>Attendance</b></h3>
+</div>
+
+
+
+<input type="hidden" id="month" value="" readonly/>
+<input type="hidden" id="year" value="" readonly/>
+<div class="month">      
+  <ul>
+    <li id="mon"></li><li style="font-size:18px"  id="yr"></li>
+  </ul>
+</div>
+
+<!--<ul class="list" id="listview">	 -->
+
+<ul class="days">  
+  <li id="l1"></li>
+  <li id="l2"></li>
+  <li id="l3"></li>
+  <li id="l4"></li>
+  <li id="l5"></li>
+  <li id="l6"></li>
+  <li id="l7"></li>
+  <li id="l8"></li>
+  <li id="l9"></li>
+  <li id="l10"></li>
+  <li id="l11"></li>
+  <li id="l12"></li>
+  <li id="l13"></li>
+  <li id="l14"></li>
+  <li id="l15"></li>
+  <li id="l16"></li>
+  <li id="l17"></li>
+  <li id="l18"></li>
+  <li id="l19"></li>
+  <li id="l20"></li>
+  <li id="l21"></li>
+  <li id="l22"></li>
+  <li id="l23"></li>
+  <li id="l24"></li>
+  <li id="l25"></li>
+  <li id="l26"></li>
+  <li id="l27"></li>
+  <li id="l28"></li>
+  <li id="l29"></li>
+  <li id="l30"></li>
+  <li id="l31"></li>
+</ul>
+<h4 style="background-color:#ff0000;"><font color='white'>&emsp;Absent</font></h4>
+<h4 style="background-color:#0033cc;"><font color='white'>&emsp;Present</font></h4>
+<h4 style="background-color:#000000;"><font color='white'>&emsp;Holiday/Att. Not Taken</font></h4>
+<ul id="listview2"></ul>
+<div class="footer"><ul class="list" id="listview1">	</div>
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth-std.js"></script>
+		<script>
+function myFunction1() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+</body>
+</html>

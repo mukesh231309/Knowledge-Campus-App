@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    
+	
+    <title>Home Page</title>
+    <script type="text/javascript">
+	var username=localStorage.username;
+
+	    if (localStorage.username == "kd") {
+        window.location.href = "index2.html"; }
+	    else if (localStorage.username == "rchauhan") {
+        window.location.href = "index2.html"; }	
+	    else if (localStorage.username == "kartikrabari") {
+        window.location.href = "index2.html"; }	
+		
+	    else if (localStorage.username == "Ripan") {
+        window.location.href = "index2.html"; }	
+
+	    else if (localStorage.username == "jrparmar") {
+        window.location.href = "index2.html"; }
+	    else if (localStorage.username == "shrutipatel") {
+        window.location.href = "index2.html"; }
+		
+	    else if (localStorage.username == "neharohit") {
+        window.location.href = "index4.html"; }			
+	    else if (localStorage.username == "akshaykumarpatel") {
+        window.location.href = "index4.html"; }	
+	    else if (localStorage.username == "jrparmar") {
+        window.location.href = "index4.html"; }	
+	
+	    else if (localStorage.username == "kartikrabari") {
+        window.location.href = "index4.html"; }		
+	    else if (localStorage.username == "shashindave") {
+        window.location.href = "index4.html"; }			
+
+
+	    else if (localStorage.username == "virendrapatel") {
+        window.location.href = "index4.html"; }	
+		else if (localStorage.username == "vanrajsinhmahida") {
+        window.location.href = "index4.html"; }	
+		else if (localStorage.username == "vishalshah") {
+        window.location.href = "index4.html"; }	
+		else if (localStorage.username == "naimesh") {
+        window.location.href = "index4.html"; }			
+		else if (localStorage.username == "komalsoni") {
+        window.location.href = "index4.html"; }	
+		else if (localStorage.username == "KOMALSONI") {
+        window.location.href = "index4.html"; }	
+
+		else {window.location.href = "institute.html";}
+
+    
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+    if (localStorage.login == "true" && filename == 'login.html') {
+        window.location.href = "index.html";
+    } else if (localStorage.login == null) {
+        window.location.href = "login.html";
+    } else if (localStorage.login == "false" && filename != 'login.html') {
+        window.location.href = "login.html";
+    }
+    </script>
+
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <h1 class="title">Welcome To</h1>
+        <a href="#" class="button button-clear" id="logout">Logout</a>
+    </div>
+
+    <div style="height:200px;background:#5E5E5E;text-align:center;margin-top:44px;padding:20px;">
+       
+		<img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:100px;width:100px;" />
+        <h2 id="name" style="color:#fff;">Knowledge Group</h2>
+    </div>
+    <ul class="list list-inset">
+	    <li class="item" style="color:#D26F6F;"><font size=4>USER
+            <p class="item-note" id="username"></p></font>
+        </li>
+		
+		<li><a href="change-password.html" class="item item-icon-right"><font size=4>Change Password</font> <i class="icon ion-ios-arrow-right"></i></a></li>        
+		<li><a href="add.html" class="item item-icon-right"><b><font size=4>DAILY REPORT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="readjson.html" class="item item-icon-right"><b><font size=4>VIEW DAILY REPORT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="view_dailyreport.html" class="item item-icon-right"><b><font size=4>VIEW MONTHLY REPORT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+
+		
+
+		
+    </ul>
+	<div class="bar bar-footer bar-balanced">
+  <div class="title"> All Rights Reserved&#169;Knowledge Group</div>
+</div>	
+    
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

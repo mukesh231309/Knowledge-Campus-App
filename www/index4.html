@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+	<link href='https://fonts.googleapis.com/css?family=Diplomata SC' rel='stylesheet'>	
+    
+	
+    <title>Home Page</title>
+    <script type="text/javascript">
+	var username=localStorage.username;
+	    if (localStorage.username == "kd") {
+       // window.location.href = "index2.html";
+    }
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+    if (localStorage.login == "true" && filename == 'login.html') {
+        window.location.href = "index.html";
+    } else if (localStorage.login == null) {
+        window.location.href = "login.html";
+    } else if (localStorage.login == "false" && filename != 'login.html') {
+        window.location.href = "login.html";
+    }
+    </script>
+<script type="text/javascript">	
+    $(document).ready(function() {
+	var username=localStorage.username;
+        var url = "https://kitetech.ac.in/App/leave-status.php?username="+username;
+        $.getJSON(url, function(result) {
+		if (!result[0]){pa='&#10004; PRESENT';
+		$("#p").append("<b>"+pa+"</b>");}
+		
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var pa = field.PA;				
+			
+				if(pa=='A'){ 
+				pa=' &emsp; <font color=red size=2>CL</font> '; 
+				}else if(pa=='D'){ 
+				pa=' &emsp; <font color=red size=2>DUTY LEAVE</font> '; 
+				}else if(pa=='H'){ 
+				pa=' &emsp; <font color=red size=2>HALF LEAVE</font> '; 
+				}else{
+				pa='<font size=2>PRESENT</font>'; 
+				}
+			$("#p").append("<b>"+pa+"</b>");
+            });
+        });
+
+
+    });	
+    </script>	
+  <style>
+  div.show {
+    background: #def3ca;
+    margin: 3px;
+    width: 50px;
+    display: none;
+    float: left;
+    text-align: center;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>	
+<style>
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 1px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */ 
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */ 
+.button5 {background-color: #555555;} /* Black */
+</style>	
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	
+	<a href="#" class="button button-clear"><font color="white"><p id="username"></p></font></a>
+        <h1 class="title">Welcome To</h1>
+        <a href="index.html" class="button button-clear" id="logout">Logout</a>
+    </div>
+
+	<div  style="height:200px;background-image: url('img/giphy.gif'); text-align:center;margin-top:44px;padding:20px;">
+       
+		<img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:100px;width:100px;" />
+        <h3 id="name" style="color:#fff; font-family: 'Diplomata SC';">Kids & High School </h3>
+    </div>
+    <ul class="list list-inset">
+	    <li class="item" style="color:#D26F6F;"><font size=4>
+		<button	id="showr" style="background-color: #555555; border: none; color: white;">Leave</button>
+			<div class="show"><a href="leave4-present.html" id="leave" style="text-decoration: none;">P</a></div>		
+			<div class="show"><a href="leave4.html" id="leave" style="text-decoration: none;">CL</a></div>
+			<div class="show"><a href="leave4-dl.html" id="leave"  style="text-decoration: none;">DL</a></div>
+			<div class="show"><a href="leave4-hl.html" id="leave"  style="text-decoration: none;">HL</a></div>	
+		<p class="item-note" id="p"></p> 			 
+			</font>
+        </li>
+<script>
+$( "#showr" ).click(function() {
+  $( "div.show" ).first().show( "fast", function showNext() {
+    $( this ).next( "div.show" ).show( "fast", showNext );
+	$( "#showr" ).hide( 1000 );
+  });
+});
+ 
+$( "#hidr" ).click(function() {
+  $( "div" ).hide( 1000 );
+});
+</script>
+		
+		<li><a href="change-password.html" class="item item-icon-right"><font size=3>Change Password</font> <i class="icon ion-ios-arrow-right"></i></a></li>        
+		<li><a href="add.html" class="item item-icon-right"><b><font size=4>DAILY REPORT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="readjson.html" class="item item-icon-right"><b><font size=4>VIEW/EDIT DAILY REPORT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="search.html" class="item item-icon-right"><b><font size=4>CHECK DAILY REPORT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="monthly_report.html" class="item item-icon-right"><b><font size=4>CHECK MONTHLY REPORT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="student.html" class="item item-icon-right"><b><font size=4>STUDENT</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="http://knowledgehighschoolanand.com/student-information.php" target="_blank" class="item item-icon-right"><b><font size=4>STUDENT INFO. FORM</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="https://www.kitetech.ac.in/kgrouplogin.php" target="_blank" class="item item-icon-right"><b><font size=4>PROFILE UPDATE</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		
+
+		
+    </ul>
+	<!--
+<div class="bar bar-footer bar-balanced">
+  <div class="title"> All Rights Reserved&#169;Knowledge Group</div>
+</div>	
+-->
+    
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

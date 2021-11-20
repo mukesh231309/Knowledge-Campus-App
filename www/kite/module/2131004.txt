@@ -1,0 +1,9 @@
+<option value="1">Binary Systems and Logic Circuits</option>
+<option value="2">Boolean Algebra and Mapping Methods</option>
+<option value="3">Logic Function Realization with MSI Circuits</option>
+<option value="4">Flip Flops</option>
+<option value="5">Introduction to State Machines</option>
+<option value="6">Synchronous State Machine Design</option>
+<option value="7">Asynchronous State Machines</option>
+<option value="8">Logic Families</option>
+<option value="9">Programmable Logic Devices</option>

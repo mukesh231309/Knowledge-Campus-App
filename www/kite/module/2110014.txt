@@ -1,0 +1,6 @@
+<option value="1">Infinite Sequences and Series</option>
+<option value="2">Curve Sketching</option>
+<option value="3">Indeterminate Forms and Improper Integrals</option>
+<option value="4">Applications of Integration</option>
+<option value="5">Partial Derivatives</option>
+<option value="6">Multiple Integrals</option>

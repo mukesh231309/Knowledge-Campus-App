@@ -1,0 +1,128 @@
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+	<script type="text/javascript" src="js/geturi.js"></script>
+
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {		
+			var id = decodeURI(getUrlVars()["id"]);
+			$("#id").val(id);
+			var id=$("#id").val();	
+			
+	        var url = "https://kitetech.ac.in/App/student-std.php?id="+id;
+        $.getJSON(url, function(result) {
+		
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var name = field.name;
+                var class1 = field.class;
+
+ 
+
+                $("#listview1").append("<p>Name: "+name+"&nbsp;&nbsp;Class: "+class1+"</p>");
+            });
+        });
+
+	        var url = "https://kitetech.ac.in/App/att-std-summary.php?username="+id;
+        $.getJSON(url, function(result) {
+
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var month = field.month;
+				var year = field.year;
+				var p = field.p;
+				var a = field.a;
+				var cnt = field.cnt;
+				var pper = field.pper;
+				var aper = field.aper;
+				var mname = field.month_name;
+		
+               //alert(pper);       
+				
+				
+				$("#listview").append("<table width=100%><tr><td align=left, width=40%><a href='att-day1.html?username="+id+"&month="+month+"&year="+year+"'>"+mname+","+year+"</a></td><td align=left, width=30%>"+pper+"%</td><td align=left, width=30%>"+aper+"%</td></tr></table>");
+				//<td align=center, width=10%>"+cnt+"</td><td align=left, width=20%>"+p+"/"+a+"</td>
+				
+            });
+
+			
+        });
+
+
+
+        var url = "https://kitetech.ac.in/App/search.php?username="+firstname+"&date1="+date1;
+        $.getJSON(url, function(result) {
+		
+            console.log(result);
+            $.each(result, function(i, field) {
+			var firstname=$("#firstname").val();
+				var stid = field.stid;
+				//var username = field.username;
+				var std = field.std;
+                var date = field.date;
+                var subject = field.subject;
+                var class1 = field.class;
+				var remark = field.remark;
+				var time = field.time;
+				var des = field.des;
+				var file = field.file;
+				if($.trim(file).length>0){
+				var file = "<img src=https://kitetech.ac.in/App/uploads/"+file+" width=100% height=auto>";}
+
+                //$("#listview").append("<a class='item' ><span class='item-note'></span><table width=100%><tr><td width='50%'>Std:"+std+"</td><td colspan=2>"+time+"</td></tr><tr><td>"+ subject +"</td><td>"+class1+"</td><td>"+remark+"</td></td><tr><td colspan=3>"+des+"</td></tr></table><p>"+file+"</p></a>");
+            });
+        });
+
+    }); 
+    </script>
+<style>
+	[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* custom styles */
+
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  
+}
+</style>
+</head>
+<body>
+
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Attendance Summary</h1>
+    </div>
+</br></br>	
+	<input type="text" id="id" value="" readonly/>
+<ul class="list" id="listview1"></ul>
+	<ul class="list" id="listview" style="max-height: 600px; overflow: scroll"></ul>
+
+	
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+</html>

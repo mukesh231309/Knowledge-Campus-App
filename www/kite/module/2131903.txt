@@ -1,0 +1,8 @@
+<option value="1">Basic Machine Tools and Metal Cutting Principles:</option>
+<option value="2">Metal Cutting Lathes</option>
+<option value="3">Drilling Machines</option>
+<option value="4">Boring Machine</option>
+<option value="5">Milling Machines</option>
+<option value="6">Planers, Shapers and Slotters</option>
+<option value="7">Sawing and Broaching Machines</option>
+<option value="8">Grinding Machines and Abrasives</option>

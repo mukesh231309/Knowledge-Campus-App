@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="utf-8" />
+		
+		<link rel="stylesheet" type="text/css" href="effects/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="effects/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="effects/css/component.css" />
+		<script src="effects/js/modernizr.custom.js"></script>
+  
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <link href='https://fonts.googleapis.com/css?family=Diplomata SC' rel='stylesheet'>
+	
+    <title>Home Page</title>
+    <script type="text/javascript">
+   
+    var url = window.location.pathname;
+    var filename = url.substring(url.lastIndexOf('/') + 1);
+    if (localStorage.login == "true" && filename == 'login.html') {
+        window.location.href = "index.html";
+    } else if (localStorage.login == null) {
+        window.location.href = "login.html";
+    } else if (localStorage.login == "false" && filename != 'login.html') {
+        window.location.href = "login.html";
+    }
+	</script>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+/* Create two equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 100px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+</style>
+<style>
+a,
+a span {
+  display: inline-block;
+}
+a span {
+  transition: 1s;
+}
+a:hover span {
+  -webkit-transform: rotateX(360deg);
+  transform: rotateX(360deg);
+}
+</style>
+</head>
+
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<a href="javascript: history.go(-1)" class="button button-clear"></a>
+        <h1 class="title">Welcome To</h1>
+        <a href="index.html" class="button button-clear" id="logout">Logout</a>
+    </div>
+
+    <div  style="height:200px;background-image: url('img/giphy.gif'); text-align:center;margin-top:44px;padding:20px;">
+       <!--background-image: url('img/giphy.gif');  background:#5E5E5E;-->
+		<img src="img/ROUND.png"  style="padding:5px;border:2px solid #ADABAB;border-radius:50px;height:100px;width:100px;" />
+        <h4 id="name" style="color:#fff;  font-family: 'Diplomata SC';">Knowledge Group (Anand)</h4>
+    </div>
+   <ul class="list list-inset">
+	    <li class="item" style="color:#D26F6F;"><font size=4><a href="change-mobile.html">Update Mobile No.</a>
+            <p class="item-note" id="username"></p></font>
+			<input type="hidden" id="institute" value="kite" />
+        </li>
+	<!-- 	
+		<li><a href="index3.html" class="item item-icon-right"><b><font size=4>KIDS & HIGH SCHOOL</b></font> <i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="index-kite.html" class="item item-icon-right" id="inst"><b><font size=4>KITE</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="index-aims.html" class="item item-icon-right"><b><font size=4>AIMS</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="index-kin.html" class="item item-icon-right"><b><font size=4>NURSING</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+		<li><a href="index-kip.html" class="item item-icon-right"><b><font size=4>PHYSIOTHERAPY</font></b><i class="icon ion-ios-arrow-right"></i></a></li>
+
+		
+    </ul>-->
+	
+<div class="row">
+  <div class="column" style="background-color:#fff;">
+    <h2><a href="index3.html"><span><img src="img/kids.jpg" width="170" height="80"></span></a></h2>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <h2><a href="index3.html"><span><img src="img/khs.jpg" width="170" height="80"></a></span></h2>
+  </div>
+</div>
+</br>
+<div class="row">
+  <div class="column" style="background-color:#fff;">
+    <h2><a href="index-kite.html"><span><img src="img/kite.jpg" width="170" height="80"></span></a></h2>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <h2><a href="index-aims.html"><span><img src="img/aims.png" width="170" height="80"></span></a></h2>
+  </div>
+</div>	
+</br>
+<div class="row">
+  <div class="column" style="background-color:#fff;">
+    <h2><a href="index-kin.html"><span><img src="img/kin.jpg" width="170" height="80"></span></a></h2>
+  </div>
+  <div class="column" style="background-color:#fff;">
+    <h2><a href="index-kip.html"><span><img src="img/kip.jpg" width="170" height="80"></span></a></h2>
+  </div>
+</div>	
+	<!--
+<div class="bar bar-footer bar-balanced">
+  <div class="title"> All Rights Reserved&#169;Knowledge Group</div>
+</div>	
+-->
+    
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+<option value="1">Plane table survey</option>
+<option value="2">Trigonometric levelling</option>
+<option value="3">Trigonometric levelling</option>
+<option value="4">Hydrography</option>

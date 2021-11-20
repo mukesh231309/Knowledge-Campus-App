@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+	<link href='https://fonts.googleapis.com/css?family=Diplomata SC' rel='stylesheet'>
+    <title>Login</title>
+        <script type="text/javascript">
+		
+    var url = window.location.pathname;var filename = url.substring(url.lastIndexOf('/')+1);
+    if(localStorage.login=="true" && filename == 'login.html'){window.location.href = "std-info.html";}
+    else if(localStorage.login=="false" && filename != 'login.html'){window.location.href = "login.html";}
+	//alert(url);
+  </script>
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.top-container {
+  background-color: #f1f1f1;
+  padding: 0px;
+  text-align: center;
+}
+
+.header {
+  padding: 0px 10px;
+  background: #000058;
+  color: #f1f1f1;
+  opacity: 1.0;
+}
+
+.content {
+  padding: 0px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 82px;
+}
+</style>  
+<style>
+input[type=submit] {
+    width: 100%;
+    background-color: #000058;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #e60000;
+}
+</style>
+</head>
+<body>
+<!--
+<div class="header" id="myHeader">
+  <center><h3><b><font color="white">Login</font></b>
+</a></h3></center>
+</div>-->
+    <div  style="height:200px;background-image: url('img/.gif'); text-align:center;margin-top:44px;padding:20px;">
+       
+		<!--<img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:100px;width:100px;" />-->
+		<img src="img/ROUND.png"  style="padding:5px;border-radius:50px;height:100px;width:100px;" />
+        <h4 id="name" style="color:#000;  font-family: 'Diplomata SC';">Knowledge Campus (Anand)</h4>
+    </div> 
+<!--
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<a href="index.html" class="button button-clear"> </a>
+        <h1 class="title" >Login</h1>
+		
+		
+        
+    </div>-->
+        <label class="item-input">
+            <!--<span class="input-label"><h4>Username</h4></span>-->
+            <input type="text" style="text-align:center;" placeholder="Username" id="username" autofocus>
+        </label>
+        <label class="item-input">
+            <!--<span class="input-label"><h4>Password</h4></span>-->
+            <input type="password" style="text-align:center;" placeholder="Password" id="password">
+        </label>
+        <label class="item-input">
+            <span class="input-label"></span>
+            <!--<a href="forget-password.html" class="button button-clear button-royal">Forget Password ?</a>-->
+        </label>
+        <label class="item-input">
+            <input type="submit" id="login" value="Login">
+			<!--<button class="button button-block button-positive" id="login">Login</button>-->
+        </label>
+    </div>
+
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth-std.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/geturi.js"></script>
+<script>
+$(document).ready(function(){
+	$("#semister").click(function(){
+		$.ajax({
+		type: "POST",
+		url: "https://kitetech.ac.in/App/get_subject_aims.php",
+		data:'keyword='+$(this).val(),
+
+		success: function(data){
+
+			$("#subject").html(data);
+
+		}
+		});
+	});
+	
+	$("#subject").click(function(){
+		$.ajax({
+		type: "POST",
+		url: "https://kitetech.ac.in/App/get_topic_aims.php",
+		data:'keyword1='+$(this).val(),
+
+		success: function(data){
+
+			$("#topic").html(data);
+
+		}
+		});
+	});	
+	$("#topic").click(function(){
+		$.ajax({
+		type: "POST",
+		url: "https://kitetech.ac.in/App/get_sub_topic_aims.php",
+		data:'keyword2='+$(this).val(),
+
+		success: function(data){
+
+			$("#sub-topic").html(data);
+
+		}
+		});
+	});		
+});
+
+function myFunction() {
+    var d = new Date();
+	var h = d.getHours();
+    var m = d.getMinutes();
+	if(m<10){m='0'+m;}
+	var t = h+""+m;
+	//document.getElementById("demo").innerHTML = t;
+	var time = document.getElementById("time").value;
+	h1=time.substr(0, 2);
+	m1=time.substr(3, 2);
+	var t1 = h1+""+m1;
+	//document.getElementById("demo").innerHTML = t;
+	t=parseInt(t);
+	t1=parseInt(t1);
+	//alert(t);
+	if(t1>t){alert("Not allowed, before class time.");
+	window.location.href = "index-aims.html";
+	}
+	}
+
+	$(document).ready(function() {
+	var username=localStorage.username;
+        var url = "https://kitetech.ac.in/App/user-dpr-kite.php?username="+username;
+        $.getJSON(url, function(result) {
+		//if (!result[0]) alert("No Record Found...!");
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var p = field.percentage;
+				
+               // $("#listview").append("<a class='item' href='update_d.html?num=" + num + "'><span class='item-note'> > </span><p>Std:"+std+"&nbsp;&nbsp;"+time+"&nbsp;&nbsp;</p><p>"+ subject +"&nbsp;|&nbsp;"+class1+"&nbsp;&nbsp;|&nbsp;"+remark+"</p><div>"+des+"</div><p>"+file+"</p></a>");
+				$("#listview1").append("Daily Report "+p+"% done.");
+            });
+        });
+    });	
+</script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+	var username=localStorage.username;
+	
+		var num1 = decodeURI(getUrlVars()["num"]);
+		var del = decodeURI(getUrlVars()["del"]);
+//alert(del);
+if(del==1){
+		$.ajax({
+					type: "POST",
+				 url : "https://kitetech.ac.in/App/dd-aims.php?num="+num1+"&username="+username,
+					success: function(response)
+						{
+                            window.location.href = "add-aims.html";
+						}
+					});
+}			
+	
+        var url = "https://kitetech.ac.in/App/json-aims.php?username="+username;
+        $.getJSON(url, function(result) {
+		//if (!result[0]) alert("No Record Found...!");
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var stid = field.stid;
+				var num = field.num;
+				//var std = field.std;
+                var date = field.date;
+                var subject = field.subject;
+                var module = field.module;
+				var topic = field.topic;
+				var remark = field.remark;
+				var time = field.time;
+				var des = field.des;
+				var room = field.room;
+					if (subject == 'undefined'){
+					var subject = ""; var module = ""; var topic = ""; 
+					}
+					if (des == 'undefined'){ var des = "";}
+               // $("#listview").append("<a class='item' href='update_d.html?num=" + num + "'><span class='item-note'> > </span><p>Std:"+std+"&nbsp;&nbsp;"+time+"&nbsp;&nbsp;</p><p>"+ subject +"&nbsp;|&nbsp;"+class1+"&nbsp;&nbsp;|&nbsp;"+remark+"</p><div>"+des+"</div><p>"+file+"</p></a>");
+				$("#listview").append("<a class='item' ><span class='item-note'> </span><table width=100%><tr><td>"+time+"</td><td>"+room+"</td></tr><tr><td>"+subject+"</td><td>"+remark+"</td></tr><tr><td>"+module+"</td></tr><tr><td>"+topic+"</td></tr><tr><td colspan=2>"+des+"</td><td><a href='add-aims.html?num="+num+"&username="+username+"&del=1' style='text-decoration:none;'>&emsp;X</a></td></tr></table></a>");
+            });
+        });
+    });
+    </script>	
+	<style>
+body{width:auto;}
+.frmSearch {border: 1px solid #a8d4b1;background-color: #C2C2C2;margin: 45px 0px;padding:10px;border-radius:4px;}
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+.sub-menu {
+    padding: 0;
+    max-height: 60em; 
+    overflow-y: auto;
+}
+</style>
+    <title>Daily Report</title>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<!--<h1><a href="index-aims.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+	<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Daily Report</h1>
+        <p 	class="button button-clear" id="username"></p>
+    </div>
+    <div class="padding" style="margin-top:40px;">
+	<a href="add-aims1.html" style="text-decoration: none;"><b>FREE-CLASS >></b></a> 
+	<!--<p><font color="red"> *</font> Mandatory fields.</p>-->
+    </br><p class="button button-clear" id="listview1"></p>
+        <label class="item-input">
+            <span class="input-label">Time<font color="red"> *</font></span>
+		<select id="time"  onChange="myFunction()" style="width: 200px">
+			<option value=""></option>
+
+			<option value="09:00-10:00">09:00-10:00</option>
+			<option value="10:00-11:00">10:00-11:00</option>
+			<option value="11:00-12:00">11:00-12:00</option>
+			<option value="12:30-13:30">12:30-13:30</option>
+			<option value="13:30-14:30">13:30-14:30</option>
+			<option value="14:30-15:30">14:30-15:30</option>
+		</select>	
+        </label>
+        <label class="item-input">
+            <span class="input-label">Semester<font color="red"> *</font></span>
+		<select id="semister" style="width: 200px">
+			<option value=""></option>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="other">other</option>
+		</select>	
+        </label>		
+		
+        <label class="item-input">
+            <span class="input-label">Subject<font color="red"> *</font></span>
+
+			<select name="subject" id="subject" class="demoInputBox" style="width: 200px">
+			<option value="">Select Subject</option>			
+		</select>
+        </label>	
+        <label class="item-input">
+            <span class="input-label">Module<font color="red"> *</font></span>
+
+			<select name="topic" id="topic" class="demoInputBox" style="width: 200px">
+			<option value=""></option>			
+		</select>
+        </label>	
+        <label class="item-input">
+            <span class="input-label">Topic<font color="red"> *</font></span>
+
+			<select name="sub-topic" id="sub-topic" class="demoInputBox" style="width: 200px">
+			<option value=""></option>			
+		</select>
+        </label>		
+
+        <label class="item-input">
+            <span class="input-label">Activity<font color="red"> *</font></span>		
+			<select id="activity" style="width: 200px" >
+				<option value=""><B></B></option>
+				<option value="Teaching"><B>Teaching</B></option>
+				<option value="Lab">Lab</option>
+				<option value="Revision">Revision</option>
+				<option value="Reading">Reading</option>
+				<option value="Supervision">Supervision</option>
+				<option value="Examination">Examination</option>
+				<option value="Paper Checking">Paper Checking</option>
+				<option value="Material Preparation">Material Preparation</option>
+				<option value="Meeting">Meeting</option>
+				<option value="Counselling">Counselling</option>
+				<option value="Other">Other</option>
+			</select>
+		</label>		
+        <label class="item-input">
+            <span class="input-label">Room No<font color="red"> *</font></span>
+            <input type="text" id="room" value="" />
+        </label>
+        <label class="item-input">
+            <span class="input-label">Description<font color="red"> *</font></span>
+            <!--<input type="text" id="des" value="" />-->
+			<textarea rows="6" cols="100" id="des" onblur='this.value = this.value.toUpperCase();' ></textarea>
+        </label>	
+	<!--	<center><b>OR</b></center>	
+        <label class="item-input"> 
+		<span class="input-label">Upload Image</span>		
+		<form method="post" id="fileinfo" name="fileinfo" onsubmit="return submitForm();">
+			
+			<input type="file" accept="image/*" capture="camera" id="file" name="file" required />
+			<input type="submit" class="button button-small button-assertive" value="Upload" />
+		</form>        	
+		<div id="output"></div>
+		</label>-->
+        <label class="item-input">
+            <button class="button button-block button-positive" id="add">Add</button>
+        </label>
+        
+        
+    </div>
+    <ul class="sub-menu" id="listview">
+    </ul>
+	
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth-aims.js"></script>
+</body>
+
+</html>

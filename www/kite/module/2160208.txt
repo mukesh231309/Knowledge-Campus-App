@@ -1,0 +1,7 @@
+<option value="1">Introduction of common technology</option>
+<option value="2">Computer ECM</option>
+<option value="3">Digital Electronics</option>
+<option value="4">Sensors</option>
+<option value="5">Actuators</option>
+<option value="6">Diagnostic tools, equipments and techniques</option>
+<option value="7">Additional Technology</option>

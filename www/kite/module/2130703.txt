@@ -1,0 +1,9 @@
+<option value="1">Introductory concepts of DBMS</option>
+<option value="2">Relational Model</option>
+<option value="3">Entity-Relationship model</option>
+<option value="4">Relational Database design</option>
+<option value="5">Query Processing and Query Optimization</option>
+<option value="6">Transaction Management</option>
+<option value="7">Security</option>
+<option value="8">SQL Concepts</option>
+<option value="9">PL/SQL Concepts</option>

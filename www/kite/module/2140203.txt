@@ -1,0 +1,10 @@
+<option value="1">Engine Construction and Operation</option>
+<option value="2">Two stroke engine</option>
+<option value="3">SI Engine Fuel System</option>
+<option value="4">CI Engine Fuel System</option>
+<option value="5">Cooling and Lubrication System</option>
+<option value="6">Combustion and Combustion Chambers</option>
+<option value="7">Types of Scavenging</option>
+<option value="8">Supercharging and Turbo charging</option>
+<option value="9">Engine Testing and Performance</option>
+<option value="10">Performance Characteristics</option>

@@ -1,0 +1,9 @@
+<option value="1">Elementary Concepts</option>
+<option value="2">Electrostatics</option>
+<option value="3">Electromagnetism</option>
+<option value="4">Single Phase A.C. Circuits</option>
+<option value="5">Three Phase A.C. Circuits</option>
+<option value="6">Batteries and Fuel Cell</option>
+<option value="7">Electrical Wiring</option>
+<option value="8">Illumination</option>
+<option value="9">Safety and protection</option>

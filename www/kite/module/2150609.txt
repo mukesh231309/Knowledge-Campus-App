@@ -1,0 +1,7 @@
+<option value="1">Compaction</option>
+<option value="2">Shear Strength of Soil</option>
+<option value="3">Consolidation of Soils</option>
+<option value="4">Stability of Slopes</option>
+<option value="5">Earth Pressure</option>
+<option value="6">Stress Distribution of Soils:</option>
+<option value="7">Basics of foundation</option>

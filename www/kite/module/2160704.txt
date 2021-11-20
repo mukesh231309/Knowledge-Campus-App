@@ -1,0 +1,6 @@
+<option value="1">Review of Mathematical Theory</option>
+<option value="2">Regular Languages and Finite Automata</option>
+<option value="3">Context free grammar (CFG)</option>
+<option value="4">Pushdown Automata, CFL And NCFL</option>
+<option value="5">Turing Machine (TM)</option>
+<option value="6">Computable Functions</option>

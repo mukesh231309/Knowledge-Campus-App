@@ -1,0 +1,12 @@
+<option>Maths</option>
+<option>Science</option>
+<option>English</option>
+<option>Gujarati</option>
+<option>Hindi</option>
+<option>Sanskrit</option>
+<option>SS</option>
+<option>Computer</option>
+<option>PE</option>
+<option>Drawing</option>
+<option>EVS</option>
+<option>GK</option>

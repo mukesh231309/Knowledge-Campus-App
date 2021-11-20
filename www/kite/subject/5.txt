@@ -1,0 +1,16 @@
+<option></option>
+<option value="2150202">AUTOMOBILE SYSTEM</option>
+<option value="2151902">THEORY OF MECHANICS</option>
+<option value="2150601">HIGHWAY ENGINEERING</option>
+<option value="2150603">ENVIRONMENTAL ENGINEERING</option>
+<option value="2150609">SOIL MECHANICS</option>
+<option value="2151603">COMPUTER GRAPHICS</option>
+<option value="2150704">OBJECT ORIENTED PROGRAMMING USING JAVA</option>
+<option value="2150703">ANALYSIS AND DESIGN OF ALGORITHM</option>
+<option value="2151908">CONTROL ENGINEERING</option>
+<option value="2151907">DESIGN OF MACHINE ELEMENTS</option>
+<option value="2151909">HEAT TRANSFER</option>
+<option value="2151903">FLUID POWER ENGINEERING</option>
+<option value="2150207">AUTOMOBILE TRANSMISSION</option>
+<option value="2150208">AUTOMOTIVE ELECTRICAL SYSTEM</option>
+

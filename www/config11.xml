@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.knowledgehighschool.anand"
+    versionCode = "18.3"
+    version     = "1.8.3" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>Knowledge Group Anand</name>
+
+  <description>
+      Knowledge Group Anand
+  </description>
+
+  <author href="https://knowledgehighschoolandnad.com" email="mukeshprajapati55@gmail.com">
+      Mukesh Prajapati
+  </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+	
+	<!--<icon src="www/img/ROUND.png" />-->
+
+<platform name="android">
+    <plugin name="cordova-android-support-gradle-release" source="npm">
+        <variable name="ANDROID_SUPPORT_VERSION" value="28.0.0"/>
+    </plugin>
+</platform>
+
+
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <preference name="BackupWebStorage" value="none" />
+    </platform>
+	<preference name="phonegap-version" value="cli-9.0.0" />
+    <preference name="DisallowOverscroll" value="true" />
+ <!--   <plugin name="cordova-plugin-whitelist" spec="~1.2.0" />
+    <plugin name="cordova-plugin-console" spec="~1.0.1" />
+    <plugin name="cordova-plugin-statusbar" spec="~1.0.1" />  
+	
+<plugin name="cordova-plugin-console" spec="1.0.7" />
+<plugin name="cordova-plugin-statusbar" spec="1.0.1" />
+<plugin name="cordova-plugin-whitelist" spec="1.2.2" />	-->
+<plugin name="cordova-plugin-camera" source="npm"/>
+<plugin name="cordova-plugin-cookiemaster" source="npm"/>
+<plugin name="cordova-plugin-device" source="npm"/>
+<plugin name="cordova-plugin-dialogs" source="npm"/>
+<plugin name="cordova-plugin-file" source="npm"/>
+
+<plugin name="cordova-plugin-file-transfer" source="npm"/>
+<plugin name="cordova-plugin-geolocation" source="npm"/>
+<plugin name="cordova-plugin-inappbrowser" source="npm"/>
+<plugin name="cordova-plugin-media" source="npm"/>
+<plugin name="cordova-plugin-media-capture" source="npm"/>
+<plugin name="cordova-plugin-network-information" source="npm"/>
+<plugin name="cordova-plugin-secure-key-store" source="npm"/>
+<plugin name="cordova-plugin-splashscreen" source="npm"/>
+<plugin name="cordova-plugin-statusbar" source="npm"/>
+<plugin name="cordova-plugin-whitelist" source="npm"/>
+</widget>

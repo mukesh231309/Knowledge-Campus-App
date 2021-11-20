@@ -1,0 +1,8 @@
+<option value="1">Introduction to Environment and Environmental Studies</option>
+<option value="2">Ecology and Ecosystems</option>
+<option value="3">Natural Resources</option>
+<option value="4">Human Population and Environment</option>
+<option value="5">Environmental pollution</option>
+<option value="6">Energy Resources and Global Environmental Issues</option>
+<option value="7">Environmental Acts and Regulations</option>
+<option value="8">Environment education videos to supplement the class- room teaching</option>

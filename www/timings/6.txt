@@ -1,0 +1,9 @@
+<option>08:10-08:50</option>
+<option>08:50-09:35</option>
+<option>10:00-10:40</option>
+<option>10:40-11:20</option>
+<option>11:20-12:00</option>
+<option>12:30-13:10</option>
+<option>13:10-13:50</option>
+<option>14:00-14:45</option>
+<option>14:45-15:35</option>

@@ -1,0 +1,10 @@
+<option value="1">Mechanical Measurement</option>
+<option value="2">Linear and angular measurements</option>
+<option value="3">Measurement of Force, Torque and Strain</option>
+<option value="4">Displacement, Velocity/Speed, and Acceleration, Measurement</option>
+<option value="5">Temperature measurement</option>
+<option value="6">Metrology</option>
+<option value="7">Metrology of Gears and screw threads</option>
+<option value="8">Metrology of Surface finish</option>
+<option value="9">Comparators</option>
+<option value="10">Miscellaneous Metrology</option>

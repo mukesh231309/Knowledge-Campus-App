@@ -1,0 +1,15 @@
+<option>Maths</option>
+<option>EVS</option>
+<option>English</option>
+<option>Spoken-English</option>
+<option>Gujarati</option>
+<option>Hindi</option>
+<option>GK</option>
+<option>Skating</option>
+<option>Computer</option>
+<option>PE</option>
+<option>Drawing</option>
+<option>Karate</option>
+<option>Dance</option>
+<option>Music</option>
+<option>Language-Lab</option>

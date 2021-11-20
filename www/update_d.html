@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+	<script type="text/javascript" src="js/geturi.js"></script>
+	
+	<script>
+		$(function() {
+					$("#std").change(function() {
+				$("#time").load("timings/" + $(this).val() + ".txt");
+			});	
+			
+			$("#std").change(function() {
+				$("#class").load("textdata/" + $(this).val() + ".txt");
+			});		
+
+			$("#std").change(function() {
+				$("#subject").load("subject/" + $(this).val() + ".txt");
+			});
+		});
+	</script>		
+    <script type="text/javascript">
+    $(document).ready(function() {
+        
+		var num = decodeURI(getUrlVars()["num"]);
+
+		
+
+        $("#num").val(num);
+
+		
+
+
+    });
+    </script>
+    <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript">
+        function submitForm() {
+            console.log("submit event");
+            var fd = new FormData(document.getElementById("fileinfo"));
+            fd.append("label", "");
+            $.ajax({
+              url: "https://kitetech.ac.in/App/upload1.php",
+              type: "POST",
+              data: fd,
+              processData: false,  // tell jQuery not to process the data
+              contentType: false   // tell jQuery not to set contentType
+            }).done(function( data ) {
+                console.log("PHP Output:");
+                console.log( data );
+				alert("Successful");
+            });
+            return false;
+        }
+    </script>
+</head>
+
+<body>
+
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<h1><a href="javascript: history.go(-1)" class="button button-clear">&lt; Back</a></h1>
+        <h1 class="title">Update Daily Report</h1>
+        <p 	class="button button-clear" id="username"></p>
+    </div>
+
+<div class="padding" style="margin-top:75px;">
+
+<input type="hidden" id="num" value="" />
+<p><font color="red"> *</font> Mandatory fields.</p>
+		<label class="item-input">		
+            <span class="input-label">Standard<font color="red"> *</font></span>
+            <select id="std" style="width: 200px">
+				<option selected value=""></option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>	
+				<option value="other">other</option>	
+			</select>		
+        </label>	
+        <label class="item-input">
+            <span class="input-label">Time</span>
+		<select id="time" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>	
+        </label>
+		
+        <label class="item-input">
+            <span class="input-label">Class</span>
+		<select id="class" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>
+        </label>	
+        <label class="item-input">
+            <span class="input-label">Subject</span>
+		<select id="subject" style="width: 200px">
+			<option>Get Standard first</option>
+		</select>		
+        </label>
+        <label class="item-input">
+            <span class="input-label">Activity<font color="red"> *</font></span>		
+			<select id="activity" style="width: 200px" >
+				<option value=""><B></B></option>
+				<option value="Teaching"><B>Teaching</B></option>
+				<option value="Revision">Revision</option>
+				<option value="Reading">Reading</option>
+				<option value="Supervision">Supervision</option>
+				<option value="Examination">Examination</option>
+				<option value="Paper Checking">Paper Checking</option>
+				<option value="Material Preparation">Material Preparation</option>
+				<option value="Meeting">Meeting</option>
+				<option value="Counselling">Counselling</option>
+				<option value="Other">Other</option>
+			</select>
+		</label>		
+        <label class="item-input">
+            <span class="input-label">Room No</span>
+            <input type="text" id="room" value="" />
+        </label>
+        <label class="item-input">
+            <span class="input-label">Description<font color="red"> *</font></span>
+			<textarea rows="6" cols="100" id="des" onblur='this.value = this.value.toUpperCase();' ></textarea>
+        </label>	
+		<center><b>OR</b></center>	
+        <label class="item-input"> 
+		<span class="input-label">Upload Image</span>		
+		<form method="post" id="fileinfo" name="fileinfo" onsubmit="return submitForm();">
+			
+			<input type="file" accept="image/*" capture="camera" id="file" />
+			<input type="submit" class="button button-small button-assertive" value="Upload" />
+		</form>        	
+		<div id="output"></div>
+		</label>
+        <label class="item-input">
+            <button class="button button-block button-positive" id="update">Update</button>
+        </label>
+        		
+		
+       <!-- <div class="item">
+            <input type="button" id="update" class="button button-block" value="Update" />
+            <input type="button" id="delete" class="button button-block" value="Delete" />
+        </div>-->
+    </div>
+
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>	
+</body>
+
+</html>

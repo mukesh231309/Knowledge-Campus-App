@@ -1,0 +1,6 @@
+<option value="1">Introduction</option>
+<option value="2">Applications of fundamentals of statics</option>
+<option value="3">Friction</option>
+<option value="4">Simple stresses and strains</option>
+<option value="5">Stresses in Beams</option>
+<option value="6">Physical and Mechanical properties of materials</option>

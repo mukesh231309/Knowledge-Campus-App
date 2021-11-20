@@ -1,0 +1,17 @@
+<option></option>
+<option value="2131904">MATERIAL SCIENCE AND METALLURGY</option>
+<option value="2131004">DIGITAL ELECTRONICS</option>
+<option value="2130602">FLUID MECHANICS</option>
+<option value="2131906">KINEMATICS OF MACHINES</option>
+<option value="2131903">MANUFACTURING PROCESSES-I</option>
+<option value="2130702">DATA STRUCTURES</option>
+<option value="2130703">DATABASE MANAGEMENT SYSTEM</option>
+<option value="2130002">ADVANCED ENGINEERING MATHEMATICS</option>
+<option value="2130000">DESIGN ENGINEERING</option>
+<option value="2130003">MECHANICS OF SOLID</option>
+<option value="2130606">Geotechnics and Applied Geology</option>
+<option value="2130601">SURVEYING</option>
+<option value="2130607">BUILDING CONSTRUCTION</option>
+<option value="2131905">ENGINEERING THERMODYNAMICS</option>
+
+

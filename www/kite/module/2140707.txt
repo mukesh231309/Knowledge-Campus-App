@@ -1,0 +1,11 @@
+<option value="1">Computer Data Representation</option>
+<option value="2">Basic Computer Organization and Design</option>
+<option value="3">Programming The Basic Computer</option>
+<option value="4">Micro programmed Control</option>
+<option value="5">Central Processing Unit</option>
+<option value="6">Pipeline And Vector Processing</option>
+<option value="7">Computer Arithmetic</option>
+<option value="8">Input-Output Organization</option>
+<option value="9">Memory Organization</option>
+<option value="10">Multipreocessors</option>
+

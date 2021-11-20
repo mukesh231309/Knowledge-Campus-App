@@ -1,0 +1,13 @@
+<option></option>
+<option value="2110002">COMMUNICATION SKILLS</option>
+<option value="2110003">COMPUTER PROGRAMMING & UTILIZATION</option>
+<option value="2110013">ENGINEERING GRAPHICS</option>
+<option value="1000001">SOFT SKILLS</option>
+<option value="3110005">BASICS OF ELECTRICAL ENGINEERING</option>
+<option value="3110002">ENGLISH</option>
+<option value="3110018">PHYSICS</option>
+<option value="3110014">MATHEMATICS 1</option>
+<option value="3110004">BASICS OF CIVIL ENGINEERING</option>
+<option value="3110006">BASICS OF MECHNICAL ENGINEERING</option>
+<option value="3110003">PROGRAMMING FOR PROBLEM SOLVING</option>
+

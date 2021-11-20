@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.top-container {
+  background-color: #f1f1f1;
+  padding: 0px;
+  text-align: center;
+}
+
+.header {
+  padding: 0px 10px;
+  background: #3399ff;
+  color: #f1f1f1;
+  opacity: 1.0;
+}
+
+.content {
+  padding: 0px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 82px;
+}
+</style>
+		<!--for top header -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">		
+<style>
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child) {display: none;}
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+}
+ </style>
+
+<!-- footer -->
+<style>
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.demo {
+  margin: 0 auto;
+  padding-top: 64px;
+  max-width: 640px;
+  width: 94%;
+}
+
+.demo h1 {
+  margin-top: 0;
+}
+
+/**
+ * Footer Styles
+ */
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  background-color: #efefef;
+  text-align: center;
+}
+<!-- Loading gif -->
+.content {display:none;}
+.preload { width:100px;
+    height: 100px;
+    position: fixed;
+    top: 20%;
+    left: 20%;}
+</style>
+<!-- loading gif ends -->
+</style>
+ <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <script type="text/javascript" src="js/jquery.js"></script>
+ <script type="text/javascript" src="js/geturi.js"></script>
+ <script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+
+ 
+   <script type="text/javascript">
+    $(document).ready(function() {
+			var month = decodeURI(getUrlVars()["month"]);
+			$("#month").val(month);	
+			var year = decodeURI(getUrlVars()["year"]);
+			$("#year").val(year);	
+			var username = decodeURI(getUrlVars()["username"]);
+			$("#username").val(username);
+			var mon = decodeURI(getUrlVars()["mon"]);
+			$("#mon").val(mon);				
+			
+			var month=$("#month").val();
+			var year=$("#year").val();
+			var username=$("#username").val();
+
+	//var username=localStorage.username;
+		//alert(month);
+
+	var cnt=0; var p=0; var a=0; 
+        var url = "https://kitetech.ac.in/App/att-std.php?username="+username+"&month="+month+"&year="+year;
+        $.getJSON(url, function(result) {
+		if (!result[0]){ 
+		alert("No Record Found...!");
+		//window.location.href = "attendance.html"; 
+		}
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var date = field.date;
+				var PA = field.PA;
+				
+				 cnt=cnt+1;
+				if(PA=='P'){ p=p+1;}
+				if(PA=='A'){ a=a+1;}	
+				if(PA=='P'){ 
+				PA='<font color=blue>'+PA+'</font>'; 
+				}
+				if(PA=='A'){ 
+				PA='<font color=red>'+PA+'</font>'; 
+				}					
+        //alert(username);               
+				$("#listview").append("<table width=100%><tr><td>"+date+"</td><td>"+PA+"</td></tr></table></a>");
+				
+            });
+				var pper=(p*100/cnt).toFixed(2);
+				var aper=(a*100/cnt).toFixed(2);
+			$("#listview1").append("<table width=100%><tr><td>Pre: "+p+"</td><td>("+pper+"%)</td><td>Abs: "+a+"</td><td>("+aper+"%)</td></tr></table>");
+        });
+		
+    }); 
+    </script>
+</head>
+<body>
+<div class="preload"><img src="std/images/pageloader.gif">
+</div>
+<script>
+$(function() {
+    $(".preload").fadeOut(2000, function() {
+        $(".content").fadeIn(1000);        
+    });
+});
+</script>
+<!--	<div class="topnav" id="myTopnav">
+  <a href="std-info.html"><i class="fa fa-home"></i></a>
+  <a href="std-info.html"><i class="fa fa-user" aria-hidden="true"></i> &nbsp; My Details</a>
+  <a href="attendance.html"><i class="fa fa-check-square-o" aria-hidden="true"></i> &nbsp; Attendance</a>
+  <a href="result.html"><i class="fa fa-list-alt" aria-hidden="true"></i>&nbsp; Result</i></a>
+  <a href="circulars.html"><i class="fa fa-file-text" aria-hidden="true"></i> &nbsp; Circulars</a>
+  <a href="remark.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> &nbsp; Remark</a>
+  <a href="index.html"><i class="fa fa-sign-out" aria-hidden="true"></i> &nbsp; Logout</a>
+
+  <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction1()">&#9776;</a>
+</div>-->
+<div class="header" id="myHeader">
+ 
+  <h3>Attendance</h3>
+</div>
+<p id="" ></p>
+<!--<input type="text" id="mon" value="" />-->
+
+<div class="content">
+<input type="hidden" id="month" value="" readonly/>
+<input type="hidden" id="year" value="" readonly/>
+<input type="hidden" id="username" value="" readonly/>
+
+<ul class="list" id="listview">	 
+</div>
+
+<div class="footer"><ul class="list" id="listview1">	</div>
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+		<script>
+function myFunction1() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}
+</script>
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
+
+</body>
+</html>

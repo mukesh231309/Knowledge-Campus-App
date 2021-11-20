@@ -1,0 +1,11 @@
+<option value="1">Introduction</option>
+<option value="2">Refrigerants</option>
+<option value="3">Air refrigeration</option>
+<option value="4">Vapour Compression system</option>
+<option value="5">Absorption refrigeration system</option>
+<option value="6">Refrigeration system components</option>
+<option value="7">Psychrometry</option>
+<option value="8">Human comfort</option>
+<option value="9">Load analysis</option>
+<option value="10">Duct design and air distribution</option>
+<option value="11">Air-conditioning systems</option>

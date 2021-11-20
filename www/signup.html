@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+    <title>Create an Account</title>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+	<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>
+        <h1 class="title">Create an Account</h1>
+        <a href="login.html" class="button button-clear button-royal">Login</a>
+    </div>
+    <div class="padding" style="margin-top:75px;">
+        <label class="item-input">
+            <span class="input-label">Name<font color="red"> *</font></span>
+            <input type="text" placeholder="Name" id="name" onblur='this.value = this.value.toUpperCase();'>
+        </label>
+        <label class="item-input">
+            <span class="input-label">Father's Name</span>
+            <input type="text" placeholder="Father's Name" id="middlename" onblur='this.value = this.value.toUpperCase();'>
+        </label>
+        <label class="item-input">
+            <span class="input-label">Surname</span>
+            <input type="text" placeholder="Surname" id="surname" onblur='this.value = this.value.toUpperCase();'>
+        </label>	
+        <label class="item-input">
+            <span class="input-label">Institute</span>		
+			<select id="institute" style="width: 200px" >
+				<option value="kids"><B>KNOWLEDGE KIDS</B></option>
+				<option value="highschool">KNOWLEDGE HIGH SCHOOL</option>
+			</select>
+		</label>		
+        <label class="item-input">
+            <span class="input-label">Mobile<font color="red"> *</font></span>
+            <input type="email" placeholder="Mobile" id="mobile">
+        </label>
+        <label class="item-input">
+            <span class="input-label">Username<font color="red"> *</font></span>
+            <input type="email" placeholder="Username" id="username">
+        </label>		
+        <label class="item-input">
+            <span class="input-label">Password<font color="red"> *</font></span>
+            <input type="email" placeholder="Password" id="password">
+        </label>			
+
+        <label class="item-input">
+            <button class="button button-block button-positive" id="signup">Create Your Account</button>
+        </label>
+        
+        <p><font color="red"> *</font> Mandatory fields.</p>
+    </div>
+
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth.js"></script>
+</body>
+
+</html>

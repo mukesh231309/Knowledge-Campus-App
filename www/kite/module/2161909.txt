@@ -1,0 +1,6 @@
+<option value="1">Module1: Metal Cutting</option>
+<option value="2">Module3: Thermal Aspects in Machining</option>
+<option value="3">Module3: Gear and Thread Manufacturing</option>
+<option value="4">Module4: Jigs and Fixtures</option>
+<option value="5">Module5: Press Tool</option>
+<option value="6">Module6: Non-conventional Machining</option>

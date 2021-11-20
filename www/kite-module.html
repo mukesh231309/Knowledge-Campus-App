@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+	
+	<script src="//code.jquery.com/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="js/geturi.js"></script>
+<style>
+* {
+    box-sizing: border-box;
+}
+
+input[type=text], select, textarea{
+    width: 50%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+.container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+    .col-25, .col-75, input[type=submit] {
+        width: 100%;
+        margin-top: 0;
+    }
+}
+</style>
+
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+	var username=localStorage.username;
+	
+	
+		var subjectcode = decodeURI(getUrlVars()["subjectcode"]);
+		var sem = decodeURI(getUrlVars()["sem"]);
+		
+//alert(subjectcode);
+	
+        var url = "https://kitetech.ac.in/App/kite-module.php?subjectcode="+subjectcode;
+        $.getJSON(url, function(result) {
+		if (!result[0]) alert("No Record Found...!");
+            console.log(result);
+            $.each(result, function(i, field) {
+			
+				var module = field.module;
+				var srno = field.srno;
+				var subjectcode = field.subjectcode;
+		
+               		
+				$("#listview").append("<table width=100%><tr><td>&emsp;&emsp;<a href=kite-topic.html?subjectcode="+subjectcode+"&srno="+srno+"&sem="+sem+">"+srno+")&nbsp;<b>"+module+"</b></a></br></br></td></tr></table>");
+            });
+        });
+	
+    });
+
+	
+    </script>	
+	
+    <title>Daily Report</title>
+</head>
+<body>
+    <div class="bar bar-header bar-positive" style="margin-top:0px;">
+	<!--<h1><a href="index-kite.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+	<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Units</h1>
+        <p 	class="button button-clear" id="username"></p>
+    </div>
+    <div class="bar bar-header bar-positive" style="margin-top:35px;">
+	<!--<h1><a href="index-kite.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+	<a href="add-kite.html" class="button button-clear"><b><font color="#000000">Lecture</font></b></a>
+        <h1 class="title"><a href="add-kite2.html" class="button button-clear"><font color="#FFC300">Lab</font></a></h1>
+        <a href="add-kite1.html" class="button button-clear"><font color="#FFC300">Other</font></a>
+    </div>	
+    <div class="padding" style="margin-top:35px;">
+	
+	</br><p 	class="button button-clear" id="listview1"></p>
+
+    <ul class="list" id="listview">
+    </ul>
+        
+    </div>
+
+	<!--<button onclick="myFunction()">Try it</button>
+	<p id="demo"></p>-->
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth-kite.js"></script>
+</body>
+
+</html>

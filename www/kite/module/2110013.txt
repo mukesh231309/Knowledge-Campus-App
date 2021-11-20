@@ -1,0 +1,7 @@
+<option value="1">Practice sheet</option>
+<option value="2">Plane scale and diagonal scale</option>
+<option value="3">Engineering curves-I and II</option>
+<option value="4">Projection of line and Projection of plane</option>
+<option value="5">Projection and section of solid</option>
+<option value="6">Orthographic projection</option>
+<option value="7">Isometric projection</option>

@@ -1,0 +1,9 @@
+<option value="1">Tacheometric Surveying</option>
+<option value="2">Geodetic Surveying</option>
+<option value="3">Theory of Errors</option>
+<option value="4">Field Astronomy</option>
+<option value="5">Aerial photogrammetry</option>
+<option value="6">Modern Surveying Instruments</option>
+<option value="7">Remote Sensing</option>
+<option value="8">Geographical Information System</option>
+

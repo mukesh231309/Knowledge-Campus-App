@@ -1,0 +1,159 @@
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/ionic.css">
+	<link rel="stylesheet" type="text/css" href="css/ionic.min.css" />
+<style>
+body{width:auto;}
+.frmSearch {border: 1px solid #a8d4b1;background-color: #ffffff;margin: 45px 0px;padding:5px;border-radius:4px;}
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#search-box{padding: 10px;border: #a8d4b1 1px solid;border-radius:4px;}
+</style>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script>
+$(document).ready(function(){
+var username=localStorage.username;
+ $("#remark").hide();
+	$("#search-box").keyup(function(){
+	
+		$.ajax({
+		type: "POST",
+		url: "https://kitetech.ac.in/App/readCountry-fac.php",
+		data:'keyword='+$(this).val(),
+		beforeSend: function(){
+			$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+		},
+		success: function(data){
+			$("#suggesstion-box").show();
+			$("#suggesstion-box").html(data);
+			$("#search-box").css("background","#FFF");
+		}
+		});
+	});
+});
+
+function selectCountry(val) {
+$("#search-box").val(val);
+$("#suggesstion-box").hide();
+}
+</script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+
+
+ $("#search-box").focus(function(){
+	$("#listview").empty();	
+	$("#listview1").empty();
+	$("#listview2").hide();
+	 });
+	 
+ $("#get").click(function(){
+ var id=$("#search-box").val();
+$("#remark").show();
+$("#get").hide();
+
+//alert(date1);
+	$("#listview").empty();
+	        var url = "https://kitetech.ac.in/App/staff-info.php?id="+id;
+        $.getJSON(url, function(result) {
+		
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var name = field.name;
+                var surname = field.surname;
+				var institute = field.institute;
+ 
+
+                $("#listview1").append("<p>&emsp;"+name+"&emsp;"+surname+"&emsp;-"+institute+"</p>");
+            });
+        });	
+	     
+		});
+		
+	
+    });
+	
+    $(document).ready(function() {
+	var username=localStorage.username;
+        var url = "https://kitetech.ac.in/App/rem-mgmt.php?username="+username;
+        $.getJSON(url, function(result) {
+		//if (!result[0]){window.location.href = "index5.html";}
+            console.log(result);
+            $.each(result, function(i, field) {
+				var id = field.id;
+				var num = field.num;
+				var username = field.username;
+				var des = field.des;
+				var sms = field.sms;
+
+        //alert(username);
+
+				if(sms==1){
+				$("#listview2").append("<table width=100%><tr><td align=left><b>&emsp;"+username+"-</b>"+des+"&emsp;<a href='https://knowledgehighschoolanand.com/rem-sms-staff.php?num="+num+"' target='_blank'>SMS</a><td></td></tr></table>");
+				}else{
+				$("#listview2").append("<table width=100%><tr><td align=left><b>&emsp;"+username+"-</b>"+des+"<td></td></tr></table>");
+				}
+            });
+        });
+    }); 
+    </script>
+<style>
+	[type="date"] {
+  background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+}
+[type="date"]::-webkit-inner-spin-button {
+  display: none;
+}
+[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+/* custom styles */
+
+label {
+  display: block;
+}
+input {
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
+  background-color: #fff;
+  padding: 3px 5px;
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.1);
+  
+}
+</style>		
+</head>
+<body>
+<input type="hidden" id="username"/>
+    <div class="bar bar-header bar-positive" style="margin-bottom:80px;">
+        <!--<h1><a href="index.html" class="button button-clear"><img src="img/ROUND.png"  style="padding:5px;border:1px solid #ADABAB;border-radius:50px;height:35px;width:35px;" /></a></h1>-->
+		<a href="javascript: history.go(-1)" class="button button-clear">&#10094; Back</a>
+        <h1 class="title">Staff Remark</h1>
+    </div>
+<div class="frmSearch">
+
+<input type="text" id="search-box" placeholder="Name" />
+
+<button id="get" class="button button-full button-positive">VIEW</button>
+<div id="suggesstion-box"></div>
+</div>
+<div id="remark">
+	<ul class="list" id="listview1"></ul>
+
+            <span class="input-label">Description<font color="red"> *</font></span>
+            
+			<textarea rows="6" cols="100" id="des" onblur='this.value = this.value.toUpperCase();' ></textarea>
+	<button id="add2" class="button button-full button-positive">SUBMIT</button>
+</div>	
+
+<ul class="list" id="listview2"></ul>
+    <script type="text/javascript" src="js/jq.js"></script>
+    <script type="text/javascript" src="js/auth-std.js"></script>
+</body>
+</html>

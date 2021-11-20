@@ -1,0 +1,9 @@
+<option value="1">BALANCING OF ROTATING MASSES</option>
+<option value="2">DYNAMICS OF RECIPROCATING ENGINES</option>
+<option value="3">INTRODUCTION TO MECHANICAL VIBRATION</option>
+<option value="4">SINLE DEGREE OF FREEDOM SYSTEM</option>
+<option value="5">SINLE DEGREE OF FREEDOM SYSTEM</option>
+<option value="6">MULTI DEGREE OF FREDOM SYSTEM AND ANALYSIS (FREE VIB.)</option>
+<option value="7">VIBRATION OF CONTINUOUS SYSTEM (FREE VIB.)</option>
+<option value="8">ROTATING UNBALANCE</option>
+<option value="9">CAM DYNAMICS</option>
